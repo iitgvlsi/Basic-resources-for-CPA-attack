@@ -180,9 +180,9 @@ source primetime_script.tcl
 
 ### Step 6 — Power Waveform Viewing with Custom WaveView
 
-CustomWaveView (wv) is used to visualise the power waveforms captured in the `.fsdb` file.
+Custom WaveView (wv) is used to visualise the power waveforms captured in the `.fsdb` file.
 
-**Invoke CustomWaveView with the power trace:**
+**Invoke Custom WaveView with the power trace:**
 ```bash
 wv aes_power.fsdb
 ```
