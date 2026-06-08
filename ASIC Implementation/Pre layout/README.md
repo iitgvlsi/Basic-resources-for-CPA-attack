@@ -94,7 +94,7 @@ formality
    - Set top design
 
 2. **Implementation design** — Read the synthesized netlist and the standard cell DB library, then set the top design:
-   - Read netlist: `netlist.v` (output from Step 1)
+   - Read netlist: `AES_Composite_enc.dc.v` (output from Step 1)
    - Read DB libraries (standard cell library)
    - Set top design
 
