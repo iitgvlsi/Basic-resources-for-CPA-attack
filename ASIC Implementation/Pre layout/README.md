@@ -34,7 +34,7 @@ RTL Code
 [1] Design Compiler (DC)   ──►  Synthesized Netlist + SDC + Reports
    │
    ▼
-[2] Formality              ──►  Formal equivalence check (RTL vs Netlist)
+[2] Formality              ──►  Formal equivalence check (RTL vs Synthesized Netlist)
    │
    ▼
 [3] VCS                    ──►  Post-synthesis simulation  →  .vcd file
