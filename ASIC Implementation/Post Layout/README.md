@@ -271,5 +271,5 @@ The output `aes.spef` captures all resistance and capacitance values of the rout
 ## Notes
 
 - The `mmmc_setup.view` file must correctly reference `syn_constraints.sdc` and `uk65lscllmvbbr_108c125_wc.lib` with paths matching your local installation.
-- `aes_post_layout.v` should replace `AES_Composite_enc.v` in any post-layout simulation or formal verification run.
-- `aes.spef` feeds directly into the PrimeTime PX power analysis step described in the main design flow README.
+- `aes_post_layout.v` should replace `AES_Composite_enc.v` in post-layout simulation and generate .vcd file.
+- Newly generated .vcd file and `aes.spef` is fed directly into the PrimeTime PX power analysis step.
