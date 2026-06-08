@@ -95,7 +95,7 @@ formality
 
 2. **Implementation design** — Read the synthesized netlist and the standard cell DB library, then set the top design:
    - Read netlist: `AES_Composite_enc.dc.v` (output from Step 1)
-   - Read DB libraries (standard cell library)
+   - Read DB libraries (standard cell library): `uk65lscllmvbbr_108c125_wc.lib`
    - Set top design
 
 3. Run **Match**
