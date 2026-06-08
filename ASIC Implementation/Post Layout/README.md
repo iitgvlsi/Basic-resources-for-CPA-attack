@@ -14,7 +14,6 @@ This section covers the physical implementation (place-and-route) of the AES Com
 │   │   ├── uk65lscllmvbbr_2.lef          # Standard cell LEF (layer 2)
 │   │   └── uk65lscllmvbbr_7m2t0f.tch    # Technology file (layer stack)
 │   ├── AES_Composite_enc.v               # Gate-level synthesized netlist
-│   ├── ccopt_FC.spec                     # Clock tree optimization spec
 │   ├── innovus_script.tcl                # Main Innovus implementation script
 │   ├── mmmc_setup.view                   # Multi-mode multi-corner setup
 │   ├── syn_constraints.sdc               # Timing constraints
