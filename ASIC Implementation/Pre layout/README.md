@@ -31,19 +31,22 @@ This repository contains the RTL design, testbench, and supporting scripts for t
 RTL Code
    │
    ▼
-[1] Design Compiler (DC)  ──►  Synthesized Netlist + SDC + Reports
+[1] Design Compiler (DC)   ──►  Synthesized Netlist + SDC + Reports
    │
    ▼
-[2] VCS                    ──►  Post-synthesis simulation  →  .vcd file
+[2] Formality              ──►  Formal equivalence check (RTL vs Netlist)
    │
    ▼
-[3] DVE                    ──►  Waveform-based post-synthesis functional verification
+[3] VCS                    ──►  Post-synthesis simulation  →  .vcd file
    │
    ▼
-[4] PrimeTime PX           ──►  Power analysis  →  .fsdb file
+[4] DVE                    ──►  Waveform-based post-synthesis functional verification
    │
    ▼
-[5] CustomWaveView         ──►  Power trace waveform viewing
+[5] PrimeTime PX           ──►  Power analysis  →  .fsdb file
+   │
+   ▼
+[6] CustomWaveView         ──►  Power trace waveform viewing
 ```
 
 ---
