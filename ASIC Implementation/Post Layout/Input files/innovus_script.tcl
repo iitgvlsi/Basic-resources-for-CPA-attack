@@ -3,6 +3,12 @@ set topverilogfile /data/student/project/AES_Composite_enc.v
 set script_root /data/student/project/
 set rpt_dir /data/student/project/reports/
 set mmmcfilename $script_root/mmmc_setup.view
+read_mmmc $mmmcfilename
+read_physical -lef { /data/student/project/lef\ files/uk65lscllmvbbr_1.lef \
+                     /data/student/project/lef\ files/uk65lscllmvbbr_2.lef \
+                     /data/student/project/lef\ files/uk65lscllmvbbr_7m2t0f.tch }
+read_netlist $topverilogfile
+init_design
 floorPlan -SITE CORE -d 1358 1358 70 70 70 70
 #addIoFiller -cell EMPTY1HB -prefix FILLER -side n -fillAnyGap
 #addIoFiller -cell EMPTY1HB -prefix FILLER -side s -fillAnyGap
@@ -56,5 +62,6 @@ setAnalysisMode -analysisType onChipVariation -cppr both
 setOptMode -fixCap true -fixTran true -fixFanoutLoad false
 optDesign -postRoute
 addFiller -cell FILLER1HD -prefix FILLER -doDRC
-
-
+saveNetlist aes_post_layout.v
+extractRC
+rcOut -spef aes.spef
