@@ -71,7 +71,7 @@ source ark_subbytes.tcl
 
 **Outputs generated:**
 - Area, power, and timing reports
-- `netlist.v` — Gate-level synthesized netlist
+- `AES_Composite_enc.dc.v` — Gate-level synthesized netlist
 - `.sdc` — Synopsys Design Constraints file (post-synthesis)
 
 ---
