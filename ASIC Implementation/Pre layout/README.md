@@ -43,7 +43,7 @@ RTL Code
 [4] PrimeTime PX           ──►  Power analysis  →  .fsdb file
    │
    ▼
-[5] CustomWaveView         ──►  Power waveform viewing
+[5] CustomWaveView         ──►  Power trace waveform viewing
 ```
 
 ---
