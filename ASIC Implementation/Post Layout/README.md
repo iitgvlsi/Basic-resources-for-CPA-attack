@@ -155,14 +155,17 @@ placeDesign
 
 ### Step 8 — Clock Tree Synthesis (CTS)
 
-The pre-defined clock tree specification `ccopt_FC.spec` is sourced and the clock tree is built with concurrent clock and data optimisation (CCOpt):
+A clock tree specification is generated and written to `ccopt_FC.spec`:
+
+```tcl
+create_ccopt_clock_tree_spec -file ccopt_FC.spec
+```
+The generated clock tree specification is sourced, and Cadence CCOpt is used to perform Clock Tree Synthesis (CTS) with concurrent clock and data path optimization:
 
 ```tcl
 source ccopt_FC.spec
 ccopt_design
 ```
-
-> `ccopt_FC.spec` is the hand-crafted spec file from `Input files/`. It defines all clock roots, targets, and routing rules for the AES design.
 
 ---
 
