@@ -202,7 +202,7 @@ Replace `aes_power.fsdb` with the actual `.fsdb` filename generated in Step 5.
 | VCS | Synopsys VCS (full64-bit mode) |
 | DVE | Bundled with VCS |
 | PrimeTime PX | Synopsys PrimeTime |
-| CustomWaveView | Synopsys CustomWaveView (wv) |
+| Custom WaveView | Synopsys Custom WaveView (wv) |
 
 Ensure all Synopsys tools are licensed and sourced in your shell environment before starting the flow. Typically this is done via your site's `setup.csh` or `setup.sh` script.
 
