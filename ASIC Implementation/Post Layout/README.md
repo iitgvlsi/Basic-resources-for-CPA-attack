@@ -264,7 +264,6 @@ The output `aes.spef` captures all resistance and capacitance values of the rout
 ## Prerequisites
 
 - Cadence Innovus Implementation System (65 nm process node support)
-- Valid Innovus, CDNtool, and CeltIC licences
 - The `reports/` directory must exist at `/data/student/project/reports/` before running the script
 
 ---
