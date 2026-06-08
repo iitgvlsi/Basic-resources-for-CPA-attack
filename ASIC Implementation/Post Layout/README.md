@@ -43,10 +43,22 @@ This repository contains the RTL design, testbench, and supporting scripts for t
 [5] DVE                    ──►  Waveform-based post-synthesis functional verification
    │
    ▼
-[6] PrimeTime PX           ──►  Power analysis  →  .fsdb file
+[6] Layout                 ──►  Post-layout netlist + SPEF file
    │
    ▼
-[7] Custom WaveView         ──►  Power trace waveform viewing
+[7] Formality              ──►  Formal equivalence check (RTL vs Post-layout Netlist)
+   │
+   ▼
+[8] VCS                    ──►  Post-layout simulation  →  .vcd file
+   │
+   ▼
+[9] DVE                    ──►  Waveform-based post-layout functional verification
+   │
+   ▼
+[10] PrimeTime PX          ──►  Power analysis  →  .fsdb file
+   │
+   ▼
+[11] Custom WaveView       ──►  Power trace waveform viewing
 ```
 
 ---
