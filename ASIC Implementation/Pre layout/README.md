@@ -1,4 +1,4 @@
-# AES Composite Encryption — Synopsys Design Flow
+# AES Encryption — Synopsys Design Flow
 
 This repository contains the RTL design, testbench, and supporting scripts for the AES Composite Encryption block. The design flow covers synthesis, simulation, and power analysis using Synopsys EDA tools.
 
@@ -15,7 +15,7 @@ This repository contains the RTL design, testbench, and supporting scripts for t
 │   ├── ark_subbytes.tcl             # Design Compiler synthesis script
 │   └── syn_constraints.sdc          # Synthesis timing constraints
 ├── VCS/
-│   ├── AES_Composite_enc.v          # Post-synthesis netlist (aes_unprotected.dc.v)
+│   ├── AES_Composite_enc.dc.v       # Post-synthesis netlist
 │   ├── testbench.v                  # Simulation testbench
 │   └── uk65lscllmvbbr_sdf21.v       # Standard cell library SDF model
 └── Power and trace sample collection/
@@ -28,22 +28,25 @@ This repository contains the RTL design, testbench, and supporting scripts for t
 ## Tool Flow Overview
 
 ```
-RTL Code
+[1] RTL Code
    │
    ▼
-[1] Design Compiler (DC)  ──►  Synthesized Netlist + SDC + Reports
+[2] Design Compiler (DC)   ──►  Synthesized Netlist + SDC + Reports
    │
    ▼
-[2] VCS                    ──►  Post-synthesis simulation  →  .vcd file
+[3] Formality              ──►  Formal equivalence check (RTL vs Synthesized Netlist)
    │
    ▼
-[3] DVE                    ──►  Waveform-based functional verification
+[4] VCS                    ──►  Post-synthesis simulation  →  .vcd file
    │
    ▼
-[4] PrimeTime PX           ──►  Power analysis  →  .fsdb file
+[5] DVE                    ──►  Waveform-based post-synthesis functional verification
    │
    ▼
-[5] CustomWaveView         ──►  Power waveform viewing
+[6] PrimeTime PX           ──►  Power analysis  →  .fsdb file
+   │
+   ▼
+[7] CustomWaveView         ──►  Power trace waveform viewing
 ```
 
 ---
@@ -67,12 +70,11 @@ source ark_subbytes.tcl
 > **Input files (in `Synthesis/`):**
 > - `AES_Composite_enc.v` — RTL design
 > - `ark_subbytes.tcl` — Synthesis TCL script
-> - `syn_constraints.sdc` — Timing constraints (referenced inside the TCL script)
 
 **Outputs generated:**
 - Area, power, and timing reports
-- `netlist.v` — Gate-level synthesized netlist
-- `.sdc` — Synopsys Design Constraints file (post-synthesis)
+- `AES_Composite_enc.dc.v` — Gate-level synthesized netlist
+- `syn_constraints.sdc` — Synopsys Design Constraints file (post-synthesis)
 
 ---
 
@@ -92,8 +94,8 @@ formality
    - Set top design
 
 2. **Implementation design** — Read the synthesized netlist and the standard cell DB library, then set the top design:
-   - Read netlist: `netlist.v` (output from Step 1)
-   - Read DB libraries (standard cell library)
+   - Read netlist: `AES_Composite_enc.dc.v` (output from Step 1)
+   - Read DB libraries (standard cell library): `uk65lscllmvbbr_108c125_wc.lib`
    - Set top design
 
 3. Run **Match**
