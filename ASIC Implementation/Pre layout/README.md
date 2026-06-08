@@ -46,7 +46,7 @@ This repository contains the RTL design, testbench, and supporting scripts for t
 [6] PrimeTime PX           ──►  Power analysis  →  .fsdb file
    │
    ▼
-[7] CustomWaveView         ──►  Power trace waveform viewing
+[7] Custom WaveView         ──►  Power trace waveform viewing
 ```
 
 ---
@@ -178,7 +178,7 @@ source primetime_script.tcl
 
 ---
 
-### Step 6 — Power Waveform Viewing with CustomWaveView
+### Step 6 — Power Waveform Viewing with Custom WaveView
 
 CustomWaveView (wv) is used to visualise the power waveforms captured in the `.fsdb` file.
 
