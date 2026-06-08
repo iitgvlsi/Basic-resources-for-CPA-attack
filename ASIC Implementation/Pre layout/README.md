@@ -37,7 +37,7 @@ RTL Code
 [2] VCS                    ──►  Post-synthesis simulation  →  .vcd file
    │
    ▼
-[3] DVE                    ──►  Waveform-based post-synthesis based functional verification
+[3] DVE                    ──►  Waveform-based post-synthesis functional verification
    │
    ▼
 [4] PrimeTime PX           ──►  Power analysis  →  .fsdb file
