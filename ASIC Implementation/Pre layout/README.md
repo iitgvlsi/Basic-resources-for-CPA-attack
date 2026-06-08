@@ -1,4 +1,4 @@
-# AES Composite Encryption — Synopsys Design Flow
+# AES Encryption — Synopsys Design Flow
 
 This repository contains the RTL design, testbench, and supporting scripts for the AES Composite Encryption block. The design flow covers synthesis, simulation, and power analysis using Synopsys EDA tools.
 
