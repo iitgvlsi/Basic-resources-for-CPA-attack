@@ -15,7 +15,7 @@ This repository contains the RTL design, testbench, and supporting scripts for t
 │   ├── ark_subbytes.tcl             # Design Compiler synthesis script
 │   └── syn_constraints.sdc          # Synthesis timing constraints
 ├── VCS/
-│   ├── AES_Composite_enc.v          # Post-synthesis netlist (aes_unprotected.dc.v)
+│   ├── aes_unprotected.dc.v         # Post-synthesis netlist
 │   ├── testbench.v                  # Simulation testbench
 │   └── uk65lscllmvbbr_sdf21.v       # Standard cell library SDF model
 └── Power and trace sample collection/
