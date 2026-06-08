@@ -28,25 +28,25 @@ This repository contains the RTL design, testbench, and supporting scripts for t
 ## Tool Flow Overview
 
 ```
-RTL Code
+[1] RTL Code
    │
    ▼
-[1] Design Compiler (DC)   ──►  Synthesized Netlist + SDC + Reports
+[2] Design Compiler (DC)   ──►  Synthesized Netlist + SDC + Reports
    │
    ▼
-[2] Formality              ──►  Formal equivalence check (RTL vs Synthesized Netlist)
+[3] Formality              ──►  Formal equivalence check (RTL vs Synthesized Netlist)
    │
    ▼
-[3] VCS                    ──►  Post-synthesis simulation  →  .vcd file
+[4] VCS                    ──►  Post-synthesis simulation  →  .vcd file
    │
    ▼
-[4] DVE                    ──►  Waveform-based post-synthesis functional verification
+[5] DVE                    ──►  Waveform-based post-synthesis functional verification
    │
    ▼
-[5] PrimeTime PX           ──►  Power analysis  →  .fsdb file
+[6] PrimeTime PX           ──►  Power analysis  →  .fsdb file
    │
    ▼
-[6] CustomWaveView         ──►  Power trace waveform viewing
+[7] CustomWaveView         ──►  Power trace waveform viewing
 ```
 
 ---
