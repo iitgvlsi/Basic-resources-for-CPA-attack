@@ -67,12 +67,11 @@ source ark_subbytes.tcl
 > **Input files (in `Synthesis/`):**
 > - `AES_Composite_enc.v` — RTL design
 > - `ark_subbytes.tcl` — Synthesis TCL script
-> - `syn_constraints.sdc` — Timing constraints (referenced inside the TCL script)
 
 **Outputs generated:**
 - Area, power, and timing reports
 - `AES_Composite_enc.dc.v` — Gate-level synthesized netlist
-- `.sdc` — Synopsys Design Constraints file (post-synthesis)
+- `syn_constraints.sdc` — Synopsys Design Constraints file (post-synthesis)
 
 ---
 
