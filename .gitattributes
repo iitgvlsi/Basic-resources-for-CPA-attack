@@ -1,1 +1,2 @@
+*.csv filter=lfs diff=lfs merge=lfs -text
 Attack[[:space:]]Models/SNR[[:space:]]Attack/aes_masoleh.csv filter=lfs diff=lfs merge=lfs -text
