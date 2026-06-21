@@ -4,27 +4,6 @@ This repository contains the RTL design, testbench, and supporting scripts for t
 
 ---
 
-## Repository Structure
-
-```
-.
-├── RTL Code/
-│   └── AES_Composite_enc.v          # RTL source (reference/exploration)
-├── Synthesis/
-│   ├── AES_Composite_enc.v          # RTL source used for synthesis
-│   ├── ark_subbytes.tcl             # Design Compiler synthesis script
-│   └── syn_constraints.sdc          # Synthesis timing constraints
-├── VCS/
-│   ├── AES_Composite_enc.dc.v       # Post-synthesis netlist
-│   ├── testbench.v                  # Simulation testbench
-│   └── uk65lscllmvbbr_sdf21.v       # Standard cell library SDF model
-└── Power and trace sample collection/
-    ├── primetime_script.tcl         # PrimeTime PX power analysis script
-    └── uk65lscllmvbbr_108c125_wc.db # Timing/power library for PrimeTime
-```
-
----
-
 ## Tool Flow Overview
 
 ```
