@@ -1,0 +1,37 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Mapping Report File for Design 'CHIP_ZUIHO_AES'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3sd3400a-fg676-4 -cm area -ir off -pr
+off -c 100 -o CHIP_ZUIHO_AES_map.ncd CHIP_ZUIHO_AES.ngd CHIP_ZUIHO_AES.pcf 
+Target Device  : xc3sd3400a
+Target Package : fg676
+Target Speed   : -4
+Mapper Version : spartan3adsp -- $Revision: 1.55 $
+Mapped Date    : Sat Apr 20 17:51:57 2024
+
+Design Summary
+--------------
+Number of errors   :   1
+Number of warnings :   0
+
+Section 1 - Errors
+------------------
+ERROR:Security:12 - No 'xc3sd3400a' feature version 2013.10 was available (-5),
+ERROR:Map:258 - A problem was encountered attempting to get the license for this
+   architecture. 
+
+Section 2 - Warnings
+--------------------
+WARNING:Security:9b - No 'ISE' feature version 2013.10 was available for part
+'xc3sd3400a'.
+
+Section 3 - Informational
+-------------------------
+INFO:Security:56 - Part 'xc3sd3400a' is not a WebPack part.
+INFO:Security:7 - A feature for ISE was found but is for the wrong hostid.
+INFO:Security:61 - The XILINXD_LICENSE_FILE environment variable is not set.
+INFO:Security:63 - The LM_LICENSE_FILE environment variable is not set.
+INFO:Security:68 - For more information or for assistance in obtaining 
+INFO:Security:68a - user is ise, on host localhost.localdomain.

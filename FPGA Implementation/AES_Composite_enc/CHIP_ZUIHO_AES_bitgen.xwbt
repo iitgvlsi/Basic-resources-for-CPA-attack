@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/ise/birjit/Thesis_experiments/Ch_Sbox_investigation/1_lut/AES_Composite_enc/CHIP_ZUIHO_AES.ncd
+OUTFILE=/home/ise/birjit/Thesis_experiments/Ch_Sbox_investigation/1_lut/AES_Composite_enc/CHIP_ZUIHO_AES.bit
+FAMILY=Spartan-3A DSP
+PART=xc3sd3400a-4fg676
+WORKINGDIR=/home/ise/birjit/Thesis_experiments/Ch_Sbox_investigation/1_lut/AES_Composite_enc
+LICENSE=ISE
+USER_INFO=8416_11442_1478797146_620

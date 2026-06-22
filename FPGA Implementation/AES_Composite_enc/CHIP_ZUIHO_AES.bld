@@ -1,0 +1,48 @@
+Release 14.7 ngdbuild P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
+ise -dd _ngo -nt timestamp -uc pin_zuiho_main_rev3.ucf -p xc3sd3400a-fg676-4
+CHIP_ZUIHO_AES.ngc CHIP_ZUIHO_AES.ngd
+
+Reading NGO file
+"/home/ise/zuiho_materials/1_lut/AES_Composite_enc/CHIP_ZUIHO_AES.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "pin_zuiho_main_rev3.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+INFO:ConstraintSystem:178 - TNM 'clkin_grp', used in period specification
+   'TS_clkin', was traced into DCM_SP instance mk_clkrst/u11. The following new
+   TNM groups and period specifications were generated at the DCM_SP output(s): 
+   CLKDV: <TIMESPEC TS_mk_clkrst_clkdv_dcm = PERIOD "mk_clkrst_clkdv_dcm"
+   TS_clkin / 1.5 HIGH 50%>
+
+Done...
+
+WARNING:NgdBuild:1212 - User specified non-default attribute value (41.666000)
+   was detected for the CLKIN_PERIOD attribute on DCM "mk_clkrst/u11".  This
+   does not match the PERIOD constraint value (24 MHz.).  The uncertainty
+   calculation will use the non-default attribute value.  This could result in
+   incorrect uncertainty calculated for DCM output clocks.
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   1
+
+Total memory usage is 513192 kilobytes
+
+Writing NGD file "CHIP_ZUIHO_AES.ngd" ...
+Total REAL time to NGDBUILD completion:  5 sec
+Total CPU time to NGDBUILD completion:   4 sec
+
+Writing NGDBUILD log file "CHIP_ZUIHO_AES.bld"...

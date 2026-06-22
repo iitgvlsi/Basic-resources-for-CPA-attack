@@ -1,0 +1,15 @@
+xst -intstyle ise -ifn "/home/ise/birjit/Thesis_experiments/Ch_Sbox_investigation/1_lut/AES_Composite_enc/CHIP_ZUIHO_AES.xst" -ofn "/home/ise/birjit/Thesis_experiments/Ch_Sbox_investigation/1_lut/AES_Composite_enc/CHIP_ZUIHO_AES.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pin_zuiho_main_rev3.ucf -p xc3sd3400a-fg676-4 CHIP_ZUIHO_AES.ngc CHIP_ZUIHO_AES.ngd  
+map -intstyle ise -p xc3sd3400a-fg676-4 -cm area -ir off -pr off -c 100 -o CHIP_ZUIHO_AES_map.ncd CHIP_ZUIHO_AES.ngd CHIP_ZUIHO_AES.pcf 
+par -w -intstyle ise -ol high -t 1 CHIP_ZUIHO_AES_map.ncd CHIP_ZUIHO_AES.ncd CHIP_ZUIHO_AES.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml CHIP_ZUIHO_AES.twx CHIP_ZUIHO_AES.ncd -o CHIP_ZUIHO_AES.twr CHIP_ZUIHO_AES.pcf -ucf pin_zuiho_main_rev3.ucf 
+bitgen -intstyle ise -f CHIP_ZUIHO_AES.ut CHIP_ZUIHO_AES.ncd 
+xst -intstyle ise -ifn "/home/ise/birjit/Thesis_experiments/Ch_Sbox_investigation/1_lut/AES_Composite_enc/CHIP_ZUIHO_AES.xst" -ofn "/home/ise/birjit/Thesis_experiments/Ch_Sbox_investigation/1_lut/AES_Composite_enc/CHIP_ZUIHO_AES.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pin_zuiho_main_rev3.ucf -p xc3sd3400a-fg676-4 CHIP_ZUIHO_AES.ngc CHIP_ZUIHO_AES.ngd  
+map -intstyle ise -p xc3sd3400a-fg676-4 -cm area -ir off -pr off -c 100 -o CHIP_ZUIHO_AES_map.ncd CHIP_ZUIHO_AES.ngd CHIP_ZUIHO_AES.pcf 
+par -w -intstyle ise -ol high -t 1 CHIP_ZUIHO_AES_map.ncd CHIP_ZUIHO_AES.ncd CHIP_ZUIHO_AES.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml CHIP_ZUIHO_AES.twx CHIP_ZUIHO_AES.ncd -o CHIP_ZUIHO_AES.twr CHIP_ZUIHO_AES.pcf -ucf pin_zuiho_main_rev3.ucf 
+bitgen -intstyle ise -f CHIP_ZUIHO_AES.ut CHIP_ZUIHO_AES.ncd 
+xst -intstyle ise -ifn "/home/ise/zuiho_materials/1_lut/AES_Composite_enc/CHIP_ZUIHO_AES.xst" -ofn "/home/ise/zuiho_materials/1_lut/AES_Composite_enc/CHIP_ZUIHO_AES.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pin_zuiho_main_rev3.ucf -p xc3sd3400a-fg676-4 CHIP_ZUIHO_AES.ngc CHIP_ZUIHO_AES.ngd  
+map -intstyle ise -p xc3sd3400a-fg676-4 -cm area -ir off -pr off -c 100 -o CHIP_ZUIHO_AES_map.ncd CHIP_ZUIHO_AES.ngd CHIP_ZUIHO_AES.pcf 

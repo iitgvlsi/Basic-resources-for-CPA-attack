@@ -1,0 +1,989 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> 
+Reading design: CHIP_ZUIHO_AES.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "CHIP_ZUIHO_AES.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "CHIP_ZUIHO_AES"
+Output Format                      : NGC
+Target Device                      : xc3sd3400a-4-fg676
+
+---- Source Options
+Top Module Name                    : CHIP_ZUIHO_AES
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "SYNCFIFO_8x31.v" in library work
+Compiling verilog file "LBUS_IF.v" in library work
+Module <SYNCFIFO_8x31> compiled
+Compiling verilog file "CTRL_LBUS.v" in library work
+Module <LBUS_IF> compiled
+Compiling verilog file "CTRL_FTDI_USB.v" in library work
+Module <CTRL_LBUS> compiled
+Compiling verilog file "AES_Composite_enc.v" in library work
+Module <CTRL_FTDI_USB> compiled
+Module <AES_Composite_enc> compiled
+Module <KeyExpantion> compiled
+Module <AES_Core> compiled
+Module <MixColumns> compiled
+Compiling verilog file "CHIP_ZUIHO_AES.v" in library work
+Module <SubBytes> compiled
+Module <CHIP_ZUIHO_AES> compiled
+Module <MK_CLKRST> compiled
+Module <MK_RST> compiled
+No errors in compilation
+Analysis of file <"CHIP_ZUIHO_AES.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <CHIP_ZUIHO_AES> in library <work>.
+
+Analyzing hierarchy for module <CTRL_FTDI_USB> in library <work> with parameters.
+	IDLE0 = "0001"
+	IDLE1 = "1000"
+	RD0 = "1001"
+	RD1 = "1010"
+	RD2 = "1011"
+	RD3 = "1100"
+	RD4 = "1101"
+	RD5 = "1110"
+	RD6 = "1111"
+	WAIT0 = "0000"
+	WR0 = "0010"
+	WR1 = "0011"
+	WR2 = "0100"
+	WR3 = "0101"
+	WR4 = "0110"
+	WR5 = "0111"
+
+Analyzing hierarchy for module <SYNCFIFO_8x31> in library <work> with parameters.
+	DEPTH = "00000000000000000000000000000101"
+	MEM_DEPTH = "00000000000000000000000000011111"
+	WIDTH = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <CTRL_LBUS> in library <work> with parameters.
+	ADDR0 = "00011"
+	ADDR1 = "00100"
+	ADDR2 = "00101"
+	ADDR3 = "00110"
+	ADDR4 = "00111"
+	ADDR5 = "01000"
+	BRANCH = "01001"
+	CMD0 = "00000"
+	CMD1 = "00001"
+	CMD2 = "00010"
+	RD0 = "01010"
+	RD1 = "01011"
+	RD2 = "01100"
+	RD3 = "01101"
+	RD4 = "01110"
+	RD5 = "01111"
+	TRAP = "11010"
+	WR0 = "10000"
+	WR1 = "10001"
+	WR2 = "10010"
+	WR3 = "10011"
+	WR4 = "10100"
+	WR5 = "10101"
+	WR6 = "10110"
+	WR7 = "10111"
+	WR8 = "11000"
+	WR9 = "11001"
+
+Analyzing hierarchy for module <LBUS_IF> in library <work>.
+
+Analyzing hierarchy for module <AES_Composite_enc> in library <work>.
+
+Analyzing hierarchy for module <MK_CLKRST> in library <work>.
+
+Analyzing hierarchy for module <AES_Core> in library <work>.
+
+Analyzing hierarchy for module <KeyExpantion> in library <work>.
+
+Analyzing hierarchy for module <MK_RST> in library <work>.
+
+Analyzing hierarchy for module <SubBytes> in library <work>.
+
+Analyzing hierarchy for module <MixColumns> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <CHIP_ZUIHO_AES>.
+Module <CHIP_ZUIHO_AES> is correct for synthesis.
+ 
+Analyzing module <CTRL_FTDI_USB> in library <work>.
+	IDLE0 = 4'b0001
+	IDLE1 = 4'b1000
+	RD0 = 4'b1001
+	RD1 = 4'b1010
+	RD2 = 4'b1011
+	RD3 = 4'b1100
+	RD4 = 4'b1101
+	RD5 = 4'b1110
+	RD6 = 4'b1111
+	WAIT0 = 4'b0000
+	WR0 = 4'b0010
+	WR1 = 4'b0011
+	WR2 = 4'b0100
+	WR3 = 4'b0101
+	WR4 = 4'b0110
+	WR5 = 4'b0111
+Module <CTRL_FTDI_USB> is correct for synthesis.
+ 
+Analyzing module <SYNCFIFO_8x31> in library <work>.
+	DEPTH = 32'sb00000000000000000000000000000101
+	MEM_DEPTH = 32'sb00000000000000000000000000011111
+	WIDTH = 32'sb00000000000000000000000000001000
+Module <SYNCFIFO_8x31> is correct for synthesis.
+ 
+Analyzing module <CTRL_LBUS> in library <work>.
+	ADDR0 = 5'b00011
+	ADDR1 = 5'b00100
+	ADDR2 = 5'b00101
+	ADDR3 = 5'b00110
+	ADDR4 = 5'b00111
+	ADDR5 = 5'b01000
+	BRANCH = 5'b01001
+	CMD0 = 5'b00000
+	CMD1 = 5'b00001
+	CMD2 = 5'b00010
+	RD0 = 5'b01010
+	RD1 = 5'b01011
+	RD2 = 5'b01100
+	RD3 = 5'b01101
+	RD4 = 5'b01110
+	RD5 = 5'b01111
+	TRAP = 5'b11010
+	WR0 = 5'b10000
+	WR1 = 5'b10001
+	WR2 = 5'b10010
+	WR3 = 5'b10011
+	WR4 = 5'b10100
+	WR5 = 5'b10101
+	WR6 = 5'b10110
+	WR7 = 5'b10111
+	WR8 = 5'b11000
+	WR9 = 5'b11001
+Module <CTRL_LBUS> is correct for synthesis.
+ 
+Analyzing module <LBUS_IF> in library <work>.
+	Calling function <mux_lbus_do>.
+Module <LBUS_IF> is correct for synthesis.
+ 
+Analyzing module <AES_Composite_enc> in library <work>.
+	Calling function <xtime>.
+Module <AES_Composite_enc> is correct for synthesis.
+ 
+Analyzing module <AES_Core> in library <work>.
+Module <AES_Core> is correct for synthesis.
+ 
+Analyzing module <SubBytes> in library <work>.
+	Calling function <s>.
+	Calling function <s>.
+	Calling function <s>.
+	Calling function <s>.
+Module <SubBytes> is correct for synthesis.
+ 
+Analyzing module <MixColumns> in library <work>.
+	Calling function <xtime>.
+	Calling function <xtime>.
+	Calling function <xtime>.
+	Calling function <xtime>.
+Module <MixColumns> is correct for synthesis.
+ 
+Analyzing module <KeyExpantion> in library <work>.
+Module <KeyExpantion> is correct for synthesis.
+ 
+Analyzing module <MK_CLKRST> in library <work>.
+Module <MK_CLKRST> is correct for synthesis.
+ 
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <u10> in unit <MK_CLKRST>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <u10> in unit <MK_CLKRST>.
+    Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <u10> in unit <MK_CLKRST>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <u10> in unit <MK_CLKRST>.
+    Set user-defined property "CLKDV_DIVIDE =  1.500000" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "CLKFX_DIVIDE =  1" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "CLKFX_MULTIPLY =  4" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "CLKIN_DIVIDE_BY_2 =  FALSE" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "CLKIN_PERIOD =  41.666000" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "CLKOUT_PHASE_SHIFT =  NONE" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "CLK_FEEDBACK =  1X" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "DESKEW_ADJUST =  SYSTEM_SYNCHRONOUS" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "DFS_FREQUENCY_MODE =  LOW" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "DLL_FREQUENCY_MODE =  LOW" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "DSS_MODE =  NONE" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "DUTY_CYCLE_CORRECTION =  TRUE" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "FACTORY_JF =  C080" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "PHASE_SHIFT =  0" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "STARTUP_WAIT =  FALSE" for instance <u11> in unit <MK_CLKRST>.
+    Set user-defined property "KEEP_HIERARCHY =  no" for unit <MK_CLKRST>.
+Analyzing module <MK_RST> in library <work>.
+Module <MK_RST> is correct for synthesis.
+ 
+    Set user-defined property "KEEP_HIERARCHY =  no" for unit <MK_RST>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <CTRL_FTDI_USB>.
+    Related source file is "CTRL_FTDI_USB.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <state> of Case statement line 112 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 16                                             |
+    | Transitions        | 21                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 9                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit tristate buffer for signal <usb_d>.
+    Found 1-bit register for signal <usb_rdn>.
+    Found 1-bit register for signal <re>.
+    Found 8-bit register for signal <wd>.
+    Found 1-bit register for signal <we>.
+    Found 1-bit register for signal <usb_wr>.
+    Found 1-bit register for signal <rxfn_reg>.
+    Found 1-bit register for signal <txen_reg>.
+    Found 8-bit register for signal <usb_wd>.
+    Found 1-bit register for signal <usb_wdt>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  23 D-type flip-flop(s).
+	inferred   8 Tristate(s).
+Unit <CTRL_FTDI_USB> synthesized.
+
+
+Synthesizing Unit <SYNCFIFO_8x31>.
+    Related source file is "SYNCFIFO_8x31.v".
+    Found 32x8-bit dual-port RAM <Mram_mem> for signal <mem>.
+    Found 5-bit updown counter for signal <cnt>.
+    Found 1-bit register for signal <emp>.
+    Found 1-bit register for signal <aemp>.
+    Found 1-bit register for signal <ful>.
+    Found 1-bit register for signal <aful>.
+    Found 5-bit up counter for signal <ra>.
+    Found 5-bit register for signal <ra1>.
+    Found 5-bit up counter for signal <wa>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   3 Counter(s).
+	inferred   9 D-type flip-flop(s).
+Unit <SYNCFIFO_8x31> synthesized.
+
+
+Synthesizing Unit <CTRL_LBUS>.
+    Related source file is "CTRL_LBUS.v".
+    Found finite state machine <FSM_1> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 27                                             |
+    | Transitions        | 40                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 26                                             |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 00000                                          |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <re>.
+    Found 8-bit register for signal <wd>.
+    Found 1-bit register for signal <we>.
+    Found 16-bit register for signal <lbus_a>.
+    Found 1-bit register for signal <lbus_rdn>.
+    Found 1-bit register for signal <lbus_wrn>.
+    Found 16-bit register for signal <lbus_di>.
+    Found 8-bit register for signal <cmd>.
+    Found 4-bit register for signal <cnt>.
+    Found 4-bit adder for signal <cnt$addsub0000>.
+    Found 16-bit register for signal <fetch>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  72 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <CTRL_LBUS> synthesized.
+
+
+Synthesizing Unit <LBUS_IF>.
+    Related source file is "LBUS_IF.v".
+    Found 128-bit register for signal <blk_kin>.
+    Found 128-bit register for signal <blk_din>.
+    Found 1-bit register for signal <blk_krdy>.
+    Found 1-bit register for signal <blk_rstn>.
+    Found 1-bit register for signal <blk_encdec>.
+    Found 16-bit register for signal <lbus_do>.
+    Found 128-bit register for signal <blk_dout_reg>.
+    Found 4-bit register for signal <blk_trig>.
+    Found 3-bit register for signal <ctrl>.
+    Found 1-bit register for signal <trig_wr>.
+    Found 2-bit register for signal <wr>.
+    Summary:
+	inferred 413 D-type flip-flop(s).
+Unit <LBUS_IF> synthesized.
+
+
+Synthesizing Unit <SubBytes>.
+    Related source file is "AES_Composite_enc.v".
+    Found 256x8-bit ROM for signal <s/1/s>.
+    Found 256x8-bit ROM for signal <s/2/s>.
+    Found 256x8-bit ROM for signal <s/3/s>.
+    Found 256x8-bit ROM for signal <s/4/s>.
+    Summary:
+	inferred   4 ROM(s).
+Unit <SubBytes> synthesized.
+
+
+Synthesizing Unit <MixColumns>.
+    Related source file is "AES_Composite_enc.v".
+    Found 16-bit xor4 for signal <y<31:16>>.
+    Found 1-bit xor4 for signal <y<15>>.
+    Found 15-bit xor4 for signal <y<14:0>>.
+    Found 1-bit xor2 for signal <y_16$xor0000> created at line 237.
+    Found 1-bit xor2 for signal <y_17$xor0000> created at line 237.
+    Found 1-bit xor2 for signal <y_18$xor0000> created at line 237.
+    Found 1-bit xor2 for signal <y_19$xor0000> created at line 237.
+    Found 1-bit xor2 for signal <y_20$xor0000> created at line 237.
+    Found 1-bit xor2 for signal <y_21$xor0000> created at line 237.
+    Found 1-bit xor2 for signal <y_22$xor0000> created at line 237.
+    Found 1-bit xor2 for signal <y_23$xor0000> created at line 237.
+    Found 1-bit xor3 for signal <y_24$xor0000> created at line 236.
+    Found 1-bit xor2 for signal <y_24$xor0001> created at line 236.
+    Found 1-bit xor3 for signal <y_25$xor0000> created at line 236.
+    Found 1-bit xor2 for signal <y_25$xor0001> created at line 236.
+    Found 1-bit xor3 for signal <y_26$xor0000> created at line 236.
+    Found 1-bit xor2 for signal <y_26$xor0001> created at line 236.
+    Found 1-bit xor3 for signal <y_27$xor0000> created at line 236.
+    Found 1-bit xor2 for signal <y_27$xor0001> created at line 236.
+    Found 1-bit xor3 for signal <y_28$xor0000> created at line 236.
+    Found 1-bit xor2 for signal <y_28$xor0001> created at line 236.
+    Found 1-bit xor3 for signal <y_29$xor0000> created at line 236.
+    Found 1-bit xor2 for signal <y_29$xor0001> created at line 236.
+    Found 1-bit xor3 for signal <y_30$xor0000> created at line 236.
+    Found 1-bit xor2 for signal <y_30$xor0001> created at line 236.
+    Found 1-bit xor3 for signal <y_31$xor0000> created at line 236.
+    Found 1-bit xor2 for signal <y_31$xor0001> created at line 236.
+    Summary:
+	inferred  24 Xor(s).
+Unit <MixColumns> synthesized.
+
+
+Synthesizing Unit <MK_RST>.
+    Related source file is "CHIP_ZUIHO_AES.v".
+    Found 16-bit up counter for signal <cnt>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <MK_RST> synthesized.
+
+
+Synthesizing Unit <MK_CLKRST>.
+    Related source file is "CHIP_ZUIHO_AES.v".
+Unit <MK_CLKRST> synthesized.
+
+
+Synthesizing Unit <AES_Core>.
+    Related source file is "AES_Composite_enc.v".
+    Found 32-bit xor2 for signal <sk0$xor0000> created at line 204.
+    Found 32-bit xor2 for signal <sk0$xor0001> created at line 204.
+    Found 32-bit xor2 for signal <sk1$xor0000> created at line 205.
+    Found 32-bit xor2 for signal <sk1$xor0001> created at line 205.
+    Found 32-bit xor2 for signal <sk2$xor0000> created at line 206.
+    Found 32-bit xor2 for signal <sk2$xor0001> created at line 206.
+    Found 32-bit xor2 for signal <sk3$xor0000> created at line 207.
+    Found 32-bit xor2 for signal <sk3$xor0001> created at line 207.
+Unit <AES_Core> synthesized.
+
+
+Synthesizing Unit <KeyExpantion>.
+    Related source file is "AES_Composite_enc.v".
+    Found 32-bit xor2 for signal <w0>.
+    Found 32-bit xor2 for signal <w1>.
+    Found 32-bit xor2 for signal <w2>.
+    Found 32-bit xor2 for signal <w3>.
+    Found 8-bit xor2 for signal <wr$xor0000> created at line 150.
+Unit <KeyExpantion> synthesized.
+
+
+Synthesizing Unit <AES_Composite_enc>.
+    Related source file is "AES_Composite_enc.v".
+    Found 1-bit register for signal <Kvld>.
+    Found 1-bit register for signal <BSY>.
+    Found 1-bit register for signal <Dvld>.
+    Found 128-bit register for signal <dat>.
+    Found 128-bit xor2 for signal <dat$xor0000> created at line 99.
+    Found 128-bit register for signal <key>.
+    Found 8-bit register for signal <rcon>.
+    Found 128-bit register for signal <rkey>.
+    Found 128-bit 4-to-1 multiplexer for signal <rkey$mux0000>.
+    Found 10-bit register for signal <rnd>.
+    Found 1-bit register for signal <sel>.
+    Summary:
+	inferred 388 D-type flip-flop(s).
+	inferred 128 Multiplexer(s).
+Unit <AES_Composite_enc> synthesized.
+
+
+Synthesizing Unit <CHIP_ZUIHO_AES>.
+    Related source file is "CHIP_ZUIHO_AES.v".
+WARNING:Xst:646 - Signal <blk_busy> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit register for signal <blk_drdy_delay>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <CHIP_ZUIHO_AES> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 32x8-bit dual-port RAM                                : 2
+# ROMs                                                 : 20
+ 256x8-bit ROM                                         : 20
+# Adders/Subtractors                                   : 1
+ 4-bit adder                                           : 1
+# Counters                                             : 7
+ 16-bit up counter                                     : 1
+ 5-bit up counter                                      : 4
+ 5-bit updown counter                                  : 2
+# Registers                                            : 336
+ 1-bit register                                        : 319
+ 10-bit register                                       : 1
+ 128-bit register                                      : 4
+ 16-bit register                                       : 2
+ 2-bit register                                        : 1
+ 4-bit register                                        : 2
+ 5-bit register                                        : 2
+ 8-bit register                                        : 5
+# Multiplexers                                         : 1
+ 128-bit 4-to-1 multiplexer                            : 1
+# Tristates                                            : 1
+ 8-bit tristate buffer                                 : 1
+# Xors                                                 : 238
+ 1-bit xor2                                            : 128
+ 1-bit xor3                                            : 32
+ 1-bit xor4                                            : 64
+ 128-bit xor2                                          : 1
+ 32-bit xor2                                           : 12
+ 8-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <ctrl_lbus/state/FSM> on signal <state[1:27]> with one-hot encoding.
+--------------------------------------
+ State | Encoding
+--------------------------------------
+ 00000 | 000000000000000000000000001
+ 00001 | 000000000000000000000000010
+ 00010 | 000000000000000000000000100
+ 00011 | 000000000000000000000001000
+ 00100 | 000000000000000000000010000
+ 00101 | 000000000000000000000100000
+ 00110 | 000000000000000000001000000
+ 00111 | 000000000000000000010000000
+ 01000 | 000000000000000000100000000
+ 01001 | 000000000000000001000000000
+ 01010 | 000000000000000010000000000
+ 01011 | 000000000000010000000000000
+ 01100 | 000000000000100000000000000
+ 01101 | 000000000001000000000000000
+ 01110 | 000000000010000000000000000
+ 01111 | 000000000100000000000000000
+ 10000 | 000000000000000100000000000
+ 10001 | 000000001000000000000000000
+ 10010 | 000000010000000000000000000
+ 10011 | 000000100000000000000000000
+ 10100 | 000001000000000000000000000
+ 10101 | 000010000000000000000000000
+ 10110 | 000100000000000000000000000
+ 10111 | 001000000000000000000000000
+ 11000 | 010000000000000000000000000
+ 11001 | 100000000000000000000000000
+ 11010 | 000000000000001000000000000
+--------------------------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <ctr_ftdi_usb/state/FSM> on signal <state[1:16]> with one-hot encoding.
+---------------------------
+ State | Encoding
+---------------------------
+ 0000  | 0000000000000001
+ 0001  | 0000000000000010
+ 0010  | 0000000000001000
+ 0011  | 0000000000010000
+ 0100  | 0000000000100000
+ 0101  | 0000000001000000
+ 0110  | 0000000010000000
+ 0111  | 0000000100000000
+ 1000  | 0000000000000100
+ 1001  | 0000001000000000
+ 1010  | 0000010000000000
+ 1011  | 0000100000000000
+ 1100  | 0001000000000000
+ 1101  | 0010000000000000
+ 1110  | 0100000000000000
+ 1111  | 1000000000000000
+---------------------------
+
+Synthesizing (advanced) Unit <SYNCFIFO_8x31>.
+INFO:Xst:3231 - The small RAM <Mram_mem> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 8-bit                     |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <we>            | high     |
+    |     addrA          | connected to signal <wa>            |          |
+    |     diA            | connected to signal <wd>            |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32-word x 8-bit                     |          |
+    |     addrB          | connected to signal <ra1>           |          |
+    |     doB            | connected to signal <rd>            |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3217 - HDL ADVISOR - Register <usb_wd> currently described with an asynchronous reset, could be combined with distributed RAM <Mram_mem> for implementation on block RAM resources if you made this reset synchronous instead.
+Unit <SYNCFIFO_8x31> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 2
+# RAMs                                                 : 2
+ 32x8-bit dual-port distributed RAM                    : 2
+# ROMs                                                 : 20
+ 256x8-bit ROM                                         : 20
+# Adders/Subtractors                                   : 1
+ 4-bit adder                                           : 1
+# Counters                                             : 7
+ 16-bit up counter                                     : 1
+ 5-bit up counter                                      : 4
+ 5-bit updown counter                                  : 2
+# Registers                                            : 933
+ Flip-Flops                                            : 933
+# Multiplexers                                         : 128
+ 1-bit 4-to-1 multiplexer                              : 128
+# Xors                                                 : 238
+ 1-bit xor2                                            : 128
+ 1-bit xor3                                            : 32
+ 1-bit xor4                                            : 64
+ 128-bit xor2                                          : 1
+ 32-bit xor2                                           : 12
+ 8-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <CHIP_ZUIHO_AES> ...
+
+Optimizing unit <SYNCFIFO_8x31> ...
+
+Optimizing unit <CTRL_LBUS> ...
+
+Optimizing unit <LBUS_IF> ...
+
+Optimizing unit <MixColumns> ...
+
+Optimizing unit <AES_Core> ...
+
+Optimizing unit <AES_Composite_enc> ...
+WARNING:Xst:2677 - Node <AES_Composite_enc/BSY> of sequential type is unconnected in block <CHIP_ZUIHO_AES>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block CHIP_ZUIHO_AES, actual ratio is 9.
+FlipFlop AES_Composite_enc/dat_0 has been replicated 3 time(s)
+FlipFlop AES_Composite_enc/dat_1 has been replicated 5 time(s)
+FlipFlop AES_Composite_enc/dat_10 has been replicated 4 time(s)
+FlipFlop AES_Composite_enc/dat_11 has been replicated 4 time(s)
+FlipFlop AES_Composite_enc/dat_12 has been replicated 4 time(s)
+FlipFlop AES_Composite_enc/dat_123 has been replicated 3 time(s)
+FlipFlop AES_Composite_enc/dat_13 has been replicated 3 time(s)
+FlipFlop AES_Composite_enc/dat_16 has been replicated 5 time(s)
+FlipFlop AES_Composite_enc/dat_18 has been replicated 5 time(s)
+FlipFlop AES_Composite_enc/dat_19 has been replicated 5 time(s)
+FlipFlop AES_Composite_enc/dat_2 has been replicated 3 time(s)
+FlipFlop AES_Composite_enc/dat_3 has been replicated 3 time(s)
+FlipFlop AES_Composite_enc/dat_32 has been replicated 6 time(s)
+FlipFlop AES_Composite_enc/dat_34 has been replicated 6 time(s)
+FlipFlop AES_Composite_enc/dat_35 has been replicated 5 time(s)
+FlipFlop AES_Composite_enc/dat_40 has been replicated 3 time(s)
+FlipFlop AES_Composite_enc/dat_41 has been replicated 3 time(s)
+FlipFlop AES_Composite_enc/dat_42 has been replicated 3 time(s)
+FlipFlop AES_Composite_enc/dat_43 has been replicated 2 time(s)
+FlipFlop AES_Composite_enc/dat_44 has been replicated 1 time(s)
+FlipFlop AES_Composite_enc/dat_72 has been replicated 5 time(s)
+FlipFlop AES_Composite_enc/dat_74 has been replicated 5 time(s)
+FlipFlop AES_Composite_enc/dat_75 has been replicated 5 time(s)
+FlipFlop AES_Composite_enc/dat_80 has been replicated 3 time(s)
+FlipFlop AES_Composite_enc/dat_81 has been replicated 2 time(s)
+FlipFlop AES_Composite_enc/dat_82 has been replicated 2 time(s)
+FlipFlop AES_Composite_enc/dat_83 has been replicated 2 time(s)
+
+Final Macro Processing ...
+
+Processing Unit <CHIP_ZUIHO_AES> :
+	Found 9-bit shift register for signal <AES_Composite_enc/rnd_9>.
+Unit <CHIP_ZUIHO_AES> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 1111
+ Flip-Flops                                            : 1111
+# Shift Registers                                      : 1
+ 9-bit shift register                                  : 1
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : CHIP_ZUIHO_AES.ngr
+Top Level Output File Name         : CHIP_ZUIHO_AES
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 29
+
+Cell Usage :
+# BELS                             : 6395
+#      GND                         : 1
+#      INV                         : 11
+#      LUT1                        : 15
+#      LUT2                        : 179
+#      LUT2_D                      : 5
+#      LUT2_L                      : 3
+#      LUT3                        : 233
+#      LUT3_D                      : 32
+#      LUT3_L                      : 1
+#      LUT4                        : 3252
+#      LUT4_D                      : 5
+#      LUT4_L                      : 132
+#      MUXCY                       : 15
+#      MUXF5                       : 1406
+#      MUXF6                       : 640
+#      MUXF7                       : 320
+#      MUXF8                       : 128
+#      VCC                         : 1
+#      XORCY                       : 16
+# FlipFlops/Latches                : 1121
+#      FD                          : 11
+#      FDC                         : 66
+#      FDCE                        : 1000
+#      FDE                         : 25
+#      FDP                         : 16
+#      FDPE                        : 3
+# RAMS                             : 32
+#      RAM16X1D                    : 32
+# Shift Registers                  : 1
+#      SRL16E                      : 1
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 29
+#      IBUF                        : 3
+#      IBUFG                       : 1
+#      IOBUF                       : 8
+#      OBUF                        : 17
+# DCMs                             : 1
+#      DCM_SP                      : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3sd3400afg676-4 
+
+ Number of Slices:                     2140  out of  23872     8%  
+ Number of Slice Flip Flops:           1121  out of  47744     2%  
+ Number of 4 input LUTs:               3933  out of  47744     8%  
+    Number used as logic:              3868
+    Number used as Shift registers:       1
+    Number used as RAMs:                 64
+ Number of IOs:                          29
+ Number of bonded IOBs:                  29  out of    469     6%  
+ Number of GCLKs:                         2  out of     24     8%  
+ Number of DCMs:                          1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clkin                              | mk_clkrst/u11:CLKDV    | 1154  |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------------------------+-----------------------------+-------+
+Control Signal                                       | Buffer(FF name)             | Load  |
+-----------------------------------------------------+-----------------------------+-------+
+led_1_OBUF(led<1>76:O)                               | NONE(ctr_ftdi_usb/re)       | 564   |
+AES_Composite_enc/rst(AES_Composite_enc/rst1_INV_0:O)| NONE(AES_Composite_enc/Dvld)| 505   |
+mk_clkrst/_and0000_inv(mk_clkrst/_and0000_inv1:O)    | NONE(mk_clkrst/u20/cnt_0)   | 16    |
+-----------------------------------------------------+-----------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 5.092ns (Maximum Frequency: 196.391MHz)
+   Minimum input arrival time before clock: 1.521ns
+   Maximum output required time after clock: 8.970ns
+   Maximum combinational path delay: 5.900ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clkin'
+  Clock period: 5.092ns (frequency: 196.391MHz)
+  Total number of paths / destination ports: 169608 / 2328
+-------------------------------------------------------------------------
+Delay:               7.638ns (Levels of Logic = 8)
+  Source:            AES_Composite_enc/dat_121 (FF)
+  Destination:       AES_Composite_enc/dat_120 (FF)
+  Source Clock:      clkin rising 0.7X
+  Destination Clock: clkin rising 0.7X
+
+  Data Path: AES_Composite_enc/dat_121 to AES_Composite_enc/dat_120
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q           129   0.591   1.373  AES_Composite_enc/dat_121 (AES_Composite_enc/dat_121)
+     LUT4:I1->O            1   0.643   0.000  AES_Composite_enc/aes_core/SB0/Mrom_s_1_s145 (AES_Composite_enc/aes_core/SB0/Mrom_s_1_s145)
+     MUXF5:I1->O           1   0.276   0.000  AES_Composite_enc/aes_core/SB0/Mrom_s_1_s14_f5_1 (AES_Composite_enc/aes_core/SB0/Mrom_s_1_s14_f52)
+     MUXF6:I1->O           1   0.291   0.000  AES_Composite_enc/aes_core/SB0/Mrom_s_1_s14_f6_0 (AES_Composite_enc/aes_core/SB0/Mrom_s_1_s14_f61)
+     MUXF7:I0->O           1   0.291   0.000  AES_Composite_enc/aes_core/SB0/Mrom_s_1_s14_f7 (AES_Composite_enc/aes_core/SB0/Mrom_s_1_s14_f7)
+     MUXF8:I1->O          21   0.291   1.160  AES_Composite_enc/aes_core/SB0/Mrom_s_1_s14_f8 (AES_Composite_enc/aes_core/SB0/Mrom_s_1_s14_f8)
+     LUT3:I2->O            1   0.648   0.423  AES_Composite_enc/aes_core/MC0/Mxor_y_28_xor0001_Result1 (AES_Composite_enc/aes_core/MC0/y_28_xor0001)
+     LUT4_L:I3->LO         1   0.648   0.103  AES_Composite_enc/dat_mux0000<100>_SW0 (N533)
+     LUT4:I3->O            1   0.648   0.000  AES_Composite_enc/dat_mux0000<100> (AES_Composite_enc/dat_mux0000<100>)
+     FDCE:D                    0.252          AES_Composite_enc/dat_100
+    ----------------------------------------
+    Total                      7.638ns (4.579ns logic, 3.059ns route)
+                                       (60.0% logic, 40.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clkin'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              1.521ns (Levels of Logic = 1)
+  Source:            usb_txen (PAD)
+  Destination:       ctr_ftdi_usb/txen_reg (FF)
+  Destination Clock: clkin rising 0.7X
+
+  Data Path: usb_txen to ctr_ftdi_usb/txen_reg
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.849   0.420  usb_txen_IBUF (usb_txen_IBUF)
+     FDP:D                     0.252          ctr_ftdi_usb/txen_reg
+    ----------------------------------------
+    Total                      1.521ns (1.101ns logic, 0.420ns route)
+                                       (72.4% logic, 27.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clkin'
+  Total number of paths / destination ports: 37 / 14
+-------------------------------------------------------------------------
+Offset:              8.970ns (Levels of Logic = 3)
+  Source:            mk_clkrst/u20/cnt_7 (FF)
+  Destination:       led<1> (PAD)
+  Source Clock:      clkin rising 0.7X
+
+  Data Path: mk_clkrst/u20/cnt_7 to led<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.591   0.590  mk_clkrst/u20/cnt_7 (mk_clkrst/u20/cnt_7)
+     LUT4:I0->O            1   0.648   0.563  led<1>12 (led<1>12)
+     LUT4:I0->O          583   0.648   1.410  led<1>76 (led_1_OBUF)
+     OBUF:I->O                 4.520          led_1_OBUF (led<1>)
+    ----------------------------------------
+    Total                      8.970ns (6.407ns logic, 2.563ns route)
+                                       (71.4% logic, 28.6% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               5.900ns (Levels of Logic = 2)
+  Source:            rstnin (PAD)
+  Destination:       led<0> (PAD)
+
+  Data Path: rstnin to led<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   0.849   0.531  rstnin_IBUF (led_0_OBUF)
+     OBUF:I->O                 4.520          led_0_OBUF (led<0>)
+    ----------------------------------------
+    Total                      5.900ns (5.369ns logic, 0.531ns route)
+                                       (91.0% logic, 9.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 49.00 secs
+Total CPU time to Xst completion: 46.41 secs
+ 
+--> 
+
+
+Total memory usage is 689880 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
+

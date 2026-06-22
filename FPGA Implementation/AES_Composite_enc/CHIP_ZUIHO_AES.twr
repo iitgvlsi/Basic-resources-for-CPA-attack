@@ -1,0 +1,658 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 4 -n
+3 -fastpaths -xml CHIP_ZUIHO_AES.twx CHIP_ZUIHO_AES.ncd -o CHIP_ZUIHO_AES.twr
+CHIP_ZUIHO_AES.pcf -ucf pin_zuiho_main_rev3.ucf
+
+Design file:              CHIP_ZUIHO_AES.ncd
+Physical constraint file: CHIP_ZUIHO_AES.pcf
+Device,package,speed:     xc3sd3400a,fg676,-4 (PRODUCTION 1.34 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: TS_clkin = PERIOD TIMEGRP "clkin_grp" 24 MHz HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is  20.000ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clkin = PERIOD TIMEGRP "clkin_grp" 24 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 21.666ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 41.666ns
+  Low pulse: 20.833ns
+  Low pulse limit: 10.000ns (Tdcmpw_CLKIN_10_25)
+  Physical resource: mk_clkrst/u11/CLKIN
+  Logical resource: mk_clkrst/u11/CLKIN
+  Location pin: DCM_X1Y3.CLKIN
+  Clock network: mk_clkrst/refclk
+--------------------------------------------------------------------------------
+Slack: 21.666ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 41.666ns
+  High pulse: 20.833ns
+  High pulse limit: 10.000ns (Tdcmpw_CLKIN_10_25)
+  Physical resource: mk_clkrst/u11/CLKIN
+  Logical resource: mk_clkrst/u11/CLKIN
+  Location pin: DCM_X1Y3.CLKIN
+  Clock network: mk_clkrst/refclk
+--------------------------------------------------------------------------------
+Slack: 37.667ns (period - min period limit)
+  Period: 41.666ns
+  Min period limit: 3.999ns (250.063MHz) (Tdcmpc)
+  Physical resource: mk_clkrst/u11/CLKIN
+  Logical resource: mk_clkrst/u11/CLKIN
+  Location pin: DCM_X1Y3.CLKIN
+  Clock network: mk_clkrst/refclk
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_mk_clkrst_clkdv_dcm = PERIOD TIMEGRP 
+"mk_clkrst_clkdv_dcm" TS_clkin / 1.5         HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 169639 paths analyzed, 3682 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  15.517ns.
+--------------------------------------------------------------------------------
+
+Paths for end point AES_Composite_enc/dat_81 (SLICE_X30Y50.BX), 715 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     46.983ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               AES_Composite_enc/dat_50 (FF)
+  Destination:          AES_Composite_enc/dat_81 (FF)
+  Requirement:          62.500ns
+  Data Path Delay:      15.301ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.216ns (0.300 - 0.516)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: AES_Composite_enc/dat_50 to AES_Composite_enc/dat_81
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X45Y62.XQ      Tcko                  0.591   AES_Composite_enc/dat<50>
+                                                       AES_Composite_enc/dat_50
+    SLICE_X44Y93.G1      net (fanout=129)      5.041   AES_Composite_enc/dat<50>
+    SLICE_X44Y93.F5      Tif5                  0.767   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f55
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s1412
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f5_4
+    SLICE_X44Y92.FXINB   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f55
+    SLICE_X44Y92.FX      Tinbfx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f6_1
+    SLICE_X44Y93.FXINA   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f62
+    SLICE_X44Y93.FX      Tinafx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f55
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f7_0
+    SLICE_X45Y91.FXINB   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f71
+    SLICE_X45Y91.Y       Tif6y                 0.291   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.F1      net (fanout=9)        2.781   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.X       Tilo                  0.692   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+                                                       AES_Composite_enc/aes_core/MC1/Mxor_y_25_xor0000_xo<0>1
+    SLICE_X32Y64.G2      net (fanout=2)        0.684   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+    SLICE_X32Y64.Y       Tilo                  0.707   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>_SW0
+    SLICE_X32Y64.F4      net (fanout=1)        0.060   AES_Composite_enc/dat_mux0000<81>_SW0/O
+    SLICE_X32Y64.X       Tilo                  0.692   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y50.BX      net (fanout=2)        2.082   AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y50.CLK     Tdick                 0.343   AES_Composite_enc/dat<81>
+                                                       AES_Composite_enc/dat_81
+    -------------------------------------------------  ---------------------------
+    Total                                     15.301ns (4.653ns logic, 10.648ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     46.983ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               AES_Composite_enc/dat_50 (FF)
+  Destination:          AES_Composite_enc/dat_81 (FF)
+  Requirement:          62.500ns
+  Data Path Delay:      15.301ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.216ns (0.300 - 0.516)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: AES_Composite_enc/dat_50 to AES_Composite_enc/dat_81
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X45Y62.XQ      Tcko                  0.591   AES_Composite_enc/dat<50>
+                                                       AES_Composite_enc/dat_50
+    SLICE_X44Y92.G1      net (fanout=129)      5.041   AES_Composite_enc/dat<50>
+    SLICE_X44Y92.F5      Tif5                  0.767   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s1410
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f5_3
+    SLICE_X44Y92.FXINA   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+    SLICE_X44Y92.FX      Tinafx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f6_1
+    SLICE_X44Y93.FXINA   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f62
+    SLICE_X44Y93.FX      Tinafx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f55
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f7_0
+    SLICE_X45Y91.FXINB   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f71
+    SLICE_X45Y91.Y       Tif6y                 0.291   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.F1      net (fanout=9)        2.781   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.X       Tilo                  0.692   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+                                                       AES_Composite_enc/aes_core/MC1/Mxor_y_25_xor0000_xo<0>1
+    SLICE_X32Y64.G2      net (fanout=2)        0.684   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+    SLICE_X32Y64.Y       Tilo                  0.707   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>_SW0
+    SLICE_X32Y64.F4      net (fanout=1)        0.060   AES_Composite_enc/dat_mux0000<81>_SW0/O
+    SLICE_X32Y64.X       Tilo                  0.692   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y50.BX      net (fanout=2)        2.082   AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y50.CLK     Tdick                 0.343   AES_Composite_enc/dat<81>
+                                                       AES_Composite_enc/dat_81
+    -------------------------------------------------  ---------------------------
+    Total                                     15.301ns (4.653ns logic, 10.648ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     46.993ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               AES_Composite_enc/dat_50 (FF)
+  Destination:          AES_Composite_enc/dat_81 (FF)
+  Requirement:          62.500ns
+  Data Path Delay:      15.291ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.216ns (0.300 - 0.516)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: AES_Composite_enc/dat_50 to AES_Composite_enc/dat_81
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X45Y62.XQ      Tcko                  0.591   AES_Composite_enc/dat<50>
+                                                       AES_Composite_enc/dat_50
+    SLICE_X44Y92.F1      net (fanout=129)      5.031   AES_Composite_enc/dat<50>
+    SLICE_X44Y92.F5      Tif5                  0.767   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s149
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f5_3
+    SLICE_X44Y92.FXINA   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+    SLICE_X44Y92.FX      Tinafx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f6_1
+    SLICE_X44Y93.FXINA   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f62
+    SLICE_X44Y93.FX      Tinafx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f55
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f7_0
+    SLICE_X45Y91.FXINB   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f71
+    SLICE_X45Y91.Y       Tif6y                 0.291   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.F1      net (fanout=9)        2.781   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.X       Tilo                  0.692   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+                                                       AES_Composite_enc/aes_core/MC1/Mxor_y_25_xor0000_xo<0>1
+    SLICE_X32Y64.G2      net (fanout=2)        0.684   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+    SLICE_X32Y64.Y       Tilo                  0.707   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>_SW0
+    SLICE_X32Y64.F4      net (fanout=1)        0.060   AES_Composite_enc/dat_mux0000<81>_SW0/O
+    SLICE_X32Y64.X       Tilo                  0.692   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y50.BX      net (fanout=2)        2.082   AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y50.CLK     Tdick                 0.343   AES_Composite_enc/dat<81>
+                                                       AES_Composite_enc/dat_81
+    -------------------------------------------------  ---------------------------
+    Total                                     15.291ns (4.653ns logic, 10.638ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point AES_Composite_enc/dat_81_2 (SLICE_X30Y38.BY), 715 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     47.615ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               AES_Composite_enc/dat_50 (FF)
+  Destination:          AES_Composite_enc/dat_81_2 (FF)
+  Requirement:          62.500ns
+  Data Path Delay:      14.681ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.204ns (0.611 - 0.815)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: AES_Composite_enc/dat_50 to AES_Composite_enc/dat_81_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X45Y62.XQ      Tcko                  0.591   AES_Composite_enc/dat<50>
+                                                       AES_Composite_enc/dat_50
+    SLICE_X44Y93.G1      net (fanout=129)      5.041   AES_Composite_enc/dat<50>
+    SLICE_X44Y93.F5      Tif5                  0.767   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f55
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s1412
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f5_4
+    SLICE_X44Y92.FXINB   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f55
+    SLICE_X44Y92.FX      Tinbfx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f6_1
+    SLICE_X44Y93.FXINA   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f62
+    SLICE_X44Y93.FX      Tinafx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f55
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f7_0
+    SLICE_X45Y91.FXINB   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f71
+    SLICE_X45Y91.Y       Tif6y                 0.291   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.F1      net (fanout=9)        2.781   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.X       Tilo                  0.692   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+                                                       AES_Composite_enc/aes_core/MC1/Mxor_y_25_xor0000_xo<0>1
+    SLICE_X32Y64.G2      net (fanout=2)        0.684   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+    SLICE_X32Y64.Y       Tilo                  0.707   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>_SW0
+    SLICE_X32Y64.F4      net (fanout=1)        0.060   AES_Composite_enc/dat_mux0000<81>_SW0/O
+    SLICE_X32Y64.X       Tilo                  0.692   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y38.BY      net (fanout=2)        1.419   AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y38.CLK     Tdick                 0.386   AES_Composite_enc/dat_81_2
+                                                       AES_Composite_enc/dat_81_2
+    -------------------------------------------------  ---------------------------
+    Total                                     14.681ns (4.696ns logic, 9.985ns route)
+                                                       (32.0% logic, 68.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     47.615ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               AES_Composite_enc/dat_50 (FF)
+  Destination:          AES_Composite_enc/dat_81_2 (FF)
+  Requirement:          62.500ns
+  Data Path Delay:      14.681ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.204ns (0.611 - 0.815)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: AES_Composite_enc/dat_50 to AES_Composite_enc/dat_81_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X45Y62.XQ      Tcko                  0.591   AES_Composite_enc/dat<50>
+                                                       AES_Composite_enc/dat_50
+    SLICE_X44Y92.G1      net (fanout=129)      5.041   AES_Composite_enc/dat<50>
+    SLICE_X44Y92.F5      Tif5                  0.767   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s1410
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f5_3
+    SLICE_X44Y92.FXINA   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+    SLICE_X44Y92.FX      Tinafx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f6_1
+    SLICE_X44Y93.FXINA   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f62
+    SLICE_X44Y93.FX      Tinafx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f55
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f7_0
+    SLICE_X45Y91.FXINB   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f71
+    SLICE_X45Y91.Y       Tif6y                 0.291   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.F1      net (fanout=9)        2.781   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.X       Tilo                  0.692   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+                                                       AES_Composite_enc/aes_core/MC1/Mxor_y_25_xor0000_xo<0>1
+    SLICE_X32Y64.G2      net (fanout=2)        0.684   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+    SLICE_X32Y64.Y       Tilo                  0.707   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>_SW0
+    SLICE_X32Y64.F4      net (fanout=1)        0.060   AES_Composite_enc/dat_mux0000<81>_SW0/O
+    SLICE_X32Y64.X       Tilo                  0.692   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y38.BY      net (fanout=2)        1.419   AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y38.CLK     Tdick                 0.386   AES_Composite_enc/dat_81_2
+                                                       AES_Composite_enc/dat_81_2
+    -------------------------------------------------  ---------------------------
+    Total                                     14.681ns (4.696ns logic, 9.985ns route)
+                                                       (32.0% logic, 68.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     47.625ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               AES_Composite_enc/dat_50 (FF)
+  Destination:          AES_Composite_enc/dat_81_2 (FF)
+  Requirement:          62.500ns
+  Data Path Delay:      14.671ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.204ns (0.611 - 0.815)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: AES_Composite_enc/dat_50 to AES_Composite_enc/dat_81_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X45Y62.XQ      Tcko                  0.591   AES_Composite_enc/dat<50>
+                                                       AES_Composite_enc/dat_50
+    SLICE_X44Y92.F1      net (fanout=129)      5.031   AES_Composite_enc/dat<50>
+    SLICE_X44Y92.F5      Tif5                  0.767   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s149
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f5_3
+    SLICE_X44Y92.FXINA   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+    SLICE_X44Y92.FX      Tinafx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f54
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f6_1
+    SLICE_X44Y93.FXINA   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f62
+    SLICE_X44Y93.FX      Tinafx                0.285   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f55
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f7_0
+    SLICE_X45Y91.FXINB   net (fanout=1)        0.000   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f71
+    SLICE_X45Y91.Y       Tif6y                 0.291   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+                                                       AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.F1      net (fanout=9)        2.781   AES_Composite_enc/aes_core/SB2/Mrom_s_2_s14_f8
+    SLICE_X30Y60.X       Tilo                  0.692   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+                                                       AES_Composite_enc/aes_core/MC1/Mxor_y_25_xor0000_xo<0>1
+    SLICE_X32Y64.G2      net (fanout=2)        0.684   AES_Composite_enc/aes_core/MC1/y_25_xor0000
+    SLICE_X32Y64.Y       Tilo                  0.707   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>_SW0
+    SLICE_X32Y64.F4      net (fanout=1)        0.060   AES_Composite_enc/dat_mux0000<81>_SW0/O
+    SLICE_X32Y64.X       Tilo                  0.692   AES_Composite_enc/dat_81_1
+                                                       AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y38.BY      net (fanout=2)        1.419   AES_Composite_enc/dat_mux0000<81>
+    SLICE_X30Y38.CLK     Tdick                 0.386   AES_Composite_enc/dat_81_2
+                                                       AES_Composite_enc/dat_81_2
+    -------------------------------------------------  ---------------------------
+    Total                                     14.671ns (4.696ns logic, 9.975ns route)
+                                                       (32.0% logic, 68.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point AES_Composite_enc/dat_4 (SLICE_X26Y40.F2), 83 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     47.753ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               AES_Composite_enc/rkey_28 (FF)
+  Destination:          AES_Composite_enc/dat_4 (FF)
+  Requirement:          62.500ns
+  Data Path Delay:      14.512ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.235ns (0.492 - 0.727)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: AES_Composite_enc/rkey_28 to AES_Composite_enc/dat_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X37Y60.XQ      Tcko                  0.591   AES_Composite_enc/rkey<28>
+                                                       AES_Composite_enc/rkey_28
+    SLICE_X27Y99.BX      net (fanout=65)       4.907   AES_Composite_enc/rkey<28>
+    SLICE_X27Y99.F5      Tbxf5                 0.605   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f57
+                                                       AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f5_6
+    SLICE_X27Y98.FXINB   net (fanout=1)        0.000   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f57
+    SLICE_X27Y98.FX      Tinbfx                0.254   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f56
+                                                       AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f6_2
+    SLICE_X26Y99.FXINB   net (fanout=1)        0.000   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f63
+    SLICE_X26Y99.Y       Tif6y                 0.410   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f71
+                                                       AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f7_0
+    SLICE_X27Y60.G1      net (fanout=1)        1.718   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f71
+    SLICE_X27Y60.Y       Tilo                  0.648   AES_Composite_enc/rkey_next<68>
+                                                       AES_Composite_enc/keyexpantion/Mxor_w0_Result<4>1
+    SLICE_X14Y44.G4      net (fanout=6)        2.841   AES_Composite_enc/rkey_next<100>
+    SLICE_X14Y44.Y       Tilo                  0.707   AES_Composite_enc/rkey<4>
+                                                       AES_Composite_enc/keyexpantion/Mxor_w3_Result<4>1
+    SLICE_X26Y40.F2      net (fanout=2)        1.029   AES_Composite_enc/rkey_next<4>
+    SLICE_X26Y40.CLK     Tfck                  0.802   AES_Composite_enc/dat<4>
+                                                       AES_Composite_enc/dat_mux0000<4>87
+                                                       AES_Composite_enc/dat_4
+    -------------------------------------------------  ---------------------------
+    Total                                     14.512ns (4.017ns logic, 10.495ns route)
+                                                       (27.7% logic, 72.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     47.753ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               AES_Composite_enc/rkey_28 (FF)
+  Destination:          AES_Composite_enc/dat_4 (FF)
+  Requirement:          62.500ns
+  Data Path Delay:      14.512ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.235ns (0.492 - 0.727)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: AES_Composite_enc/rkey_28 to AES_Composite_enc/dat_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X37Y60.XQ      Tcko                  0.591   AES_Composite_enc/rkey<28>
+                                                       AES_Composite_enc/rkey_28
+    SLICE_X27Y98.BX      net (fanout=65)       4.907   AES_Composite_enc/rkey<28>
+    SLICE_X27Y98.F5      Tbxf5                 0.605   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f56
+                                                       AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f5_5
+    SLICE_X27Y98.FXINA   net (fanout=1)        0.000   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f56
+    SLICE_X27Y98.FX      Tinafx                0.254   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f56
+                                                       AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f6_2
+    SLICE_X26Y99.FXINB   net (fanout=1)        0.000   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f63
+    SLICE_X26Y99.Y       Tif6y                 0.410   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f71
+                                                       AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f7_0
+    SLICE_X27Y60.G1      net (fanout=1)        1.718   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f71
+    SLICE_X27Y60.Y       Tilo                  0.648   AES_Composite_enc/rkey_next<68>
+                                                       AES_Composite_enc/keyexpantion/Mxor_w0_Result<4>1
+    SLICE_X14Y44.G4      net (fanout=6)        2.841   AES_Composite_enc/rkey_next<100>
+    SLICE_X14Y44.Y       Tilo                  0.707   AES_Composite_enc/rkey<4>
+                                                       AES_Composite_enc/keyexpantion/Mxor_w3_Result<4>1
+    SLICE_X26Y40.F2      net (fanout=2)        1.029   AES_Composite_enc/rkey_next<4>
+    SLICE_X26Y40.CLK     Tfck                  0.802   AES_Composite_enc/dat<4>
+                                                       AES_Composite_enc/dat_mux0000<4>87
+                                                       AES_Composite_enc/dat_4
+    -------------------------------------------------  ---------------------------
+    Total                                     14.512ns (4.017ns logic, 10.495ns route)
+                                                       (27.7% logic, 72.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     47.881ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               AES_Composite_enc/rkey_27 (FF)
+  Destination:          AES_Composite_enc/dat_4 (FF)
+  Requirement:          62.500ns
+  Data Path Delay:      14.406ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.213ns (0.492 - 0.705)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: AES_Composite_enc/rkey_27 to AES_Composite_enc/dat_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X34Y61.XQ      Tcko                  0.631   AES_Composite_enc/rkey<27>
+                                                       AES_Composite_enc/rkey_27
+    SLICE_X26Y98.G1      net (fanout=129)      4.568   AES_Composite_enc/rkey<27>
+    SLICE_X26Y98.F5      Tif5                  0.767   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f54
+                                                       AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s810
+                                                       AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f5_3
+    SLICE_X26Y98.FXINA   net (fanout=1)        0.000   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f54
+    SLICE_X26Y98.FX      Tinafx                0.285   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f54
+                                                       AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f6_1
+    SLICE_X26Y99.FXINA   net (fanout=1)        0.000   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f62
+    SLICE_X26Y99.Y       Tif6y                 0.410   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f71
+                                                       AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f7_0
+    SLICE_X27Y60.G1      net (fanout=1)        1.718   AES_Composite_enc/keyexpantion/SB0/Mrom_s_4_s8_f71
+    SLICE_X27Y60.Y       Tilo                  0.648   AES_Composite_enc/rkey_next<68>
+                                                       AES_Composite_enc/keyexpantion/Mxor_w0_Result<4>1
+    SLICE_X14Y44.G4      net (fanout=6)        2.841   AES_Composite_enc/rkey_next<100>
+    SLICE_X14Y44.Y       Tilo                  0.707   AES_Composite_enc/rkey<4>
+                                                       AES_Composite_enc/keyexpantion/Mxor_w3_Result<4>1
+    SLICE_X26Y40.F2      net (fanout=2)        1.029   AES_Composite_enc/rkey_next<4>
+    SLICE_X26Y40.CLK     Tfck                  0.802   AES_Composite_enc/dat<4>
+                                                       AES_Composite_enc/dat_mux0000<4>87
+                                                       AES_Composite_enc/dat_4
+    -------------------------------------------------  ---------------------------
+    Total                                     14.406ns (4.250ns logic, 10.156ns route)
+                                                       (29.5% logic, 70.5% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_mk_clkrst_clkdv_dcm = PERIOD TIMEGRP "mk_clkrst_clkdv_dcm" TS_clkin / 1.5
+        HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point AES_Composite_enc/key_63 (SLICE_X43Y71.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.756ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               lbus_if/blk_kin_63 (FF)
+  Destination:          AES_Composite_enc/key_63 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.978ns (Levels of Logic = 0)
+  Clock Path Skew:      0.222ns (0.893 - 0.671)
+  Source Clock:         clk rising at 62.500ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: lbus_if/blk_kin_63 to AES_Composite_enc/key_63
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y72.XQ      Tcko                  0.473   lbus_if/blk_kin<63>
+                                                       lbus_if/blk_kin_63
+    SLICE_X43Y71.BX      net (fanout=3)        0.416   lbus_if/blk_kin<63>
+    SLICE_X43Y71.CLK     Tckdi       (-Th)    -0.089   AES_Composite_enc/key<63>
+                                                       AES_Composite_enc/key_63
+    -------------------------------------------------  ---------------------------
+    Total                                      0.978ns (0.562ns logic, 0.416ns route)
+                                                       (57.5% logic, 42.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point AES_Composite_enc/key_62 (SLICE_X43Y71.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.766ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               lbus_if/blk_kin_62 (FF)
+  Destination:          AES_Composite_enc/key_62 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.988ns (Levels of Logic = 0)
+  Clock Path Skew:      0.222ns (0.893 - 0.671)
+  Source Clock:         clk rising at 62.500ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: lbus_if/blk_kin_62 to AES_Composite_enc/key_62
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X43Y72.YQ      Tcko                  0.464   lbus_if/blk_kin<63>
+                                                       lbus_if/blk_kin_62
+    SLICE_X43Y71.BY      net (fanout=3)        0.384   lbus_if/blk_kin<62>
+    SLICE_X43Y71.CLK     Tckdi       (-Th)    -0.140   AES_Composite_enc/key<63>
+                                                       AES_Composite_enc/key_62
+    -------------------------------------------------  ---------------------------
+    Total                                      0.988ns (0.604ns logic, 0.384ns route)
+                                                       (61.1% logic, 38.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point fifo_wr/Mram_mem7.SLICEM_F (SLICE_X4Y108.G3), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.855ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               fifo_wr/wa_2 (FF)
+  Destination:          fifo_wr/Mram_mem7.SLICEM_F (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.885ns (Levels of Logic = 1)
+  Clock Path Skew:      0.030ns (0.121 - 0.091)
+  Source Clock:         clk rising at 62.500ns
+  Destination Clock:    clk rising at 62.500ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: fifo_wr/wa_2 to fifo_wr/Mram_mem7.SLICEM_F
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X5Y110.YQ      Tcko                  0.464   fifo_wr/wa<3>
+                                                       fifo_wr/wa_2
+    SLICE_X4Y108.G3      net (fanout=20)       0.422   fifo_wr/wa<2>
+    SLICE_X4Y108.CLK     Tah         (-Th)     0.001   fifo_wr/N17
+                                                       fifo_wr/Mram_mem7.SLICEM_F
+    -------------------------------------------------  ---------------------------
+    Total                                      0.885ns (0.463ns logic, 0.422ns route)
+                                                       (52.3% logic, 47.7% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_mk_clkrst_clkdv_dcm = PERIOD TIMEGRP "mk_clkrst_clkdv_dcm" TS_clkin / 1.5
+        HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 59.296ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 62.500ns
+  Low pulse: 31.250ns
+  Low pulse limit: 1.602ns (Trpw)
+  Physical resource: lbus_if/lbus_do<0>/SR
+  Logical resource: lbus_if/lbus_do_0/SR
+  Location pin: SLICE_X30Y98.SR
+  Clock network: led_1_OBUF
+--------------------------------------------------------------------------------
+Slack: 59.296ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 62.500ns
+  High pulse: 31.250ns
+  High pulse limit: 1.602ns (Trpw)
+  Physical resource: lbus_if/lbus_do<0>/SR
+  Logical resource: lbus_if/lbus_do_0/SR
+  Location pin: SLICE_X30Y98.SR
+  Clock network: led_1_OBUF
+--------------------------------------------------------------------------------
+Slack: 59.296ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 62.500ns
+  Low pulse: 31.250ns
+  Low pulse limit: 1.602ns (Trpw)
+  Physical resource: AES_Composite_enc/rkey<66>/SR
+  Logical resource: AES_Composite_enc/rkey_66/SR
+  Location pin: SLICE_X24Y58.SR
+  Clock network: lbus_if/blk_rstn
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for TS_clkin
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_clkin                       |     41.667ns|     20.000ns|     10.345ns|            0|            0|            0|       169639|
+| TS_mk_clkrst_clkdv_dcm        |     62.500ns|     15.517ns|          N/A|            0|            0|       169639|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clkin
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clkin          |   15.517|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 169639 paths, 0 nets, and 21827 connections
+
+Design statistics:
+   Minimum period:  20.000ns{1}   (Maximum frequency:  50.000MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Sun Dec  4 03:52:04 2022 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 541 MB
+
+
+

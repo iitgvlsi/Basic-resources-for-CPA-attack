@@ -1,0 +1,620 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sun Dec 04 03:48:39 2022
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clkin" LOCATE = SITE "C13" LEVEL 1;
+COMP "gpio_endn" LOCATE = SITE "P23" LEVEL 1;
+COMP "gpio_exec" LOCATE = SITE "N24" LEVEL 1;
+COMP "usb_rdn" LOCATE = SITE "AC2" LEVEL 1;
+COMP "led<0>" LOCATE = SITE "AB23" LEVEL 1;
+COMP "led<1>" LOCATE = SITE "V25" LEVEL 1;
+COMP "led<2>" LOCATE = SITE "AA23" LEVEL 1;
+COMP "led<3>" LOCATE = SITE "AA24" LEVEL 1;
+COMP "led<4>" LOCATE = SITE "W23" LEVEL 1;
+COMP "led<5>" LOCATE = SITE "V24" LEVEL 1;
+COMP "led<6>" LOCATE = SITE "T24" LEVEL 1;
+COMP "led<7>" LOCATE = SITE "R26" LEVEL 1;
+COMP "led<8>" LOCATE = SITE "R25" LEVEL 1;
+COMP "led<9>" LOCATE = SITE "V23" LEVEL 1;
+COMP "gpio_startn" LOCATE = SITE "M25" LEVEL 1;
+COMP "usb_wr" LOCATE = SITE "AD1" LEVEL 1;
+COMP "rstnin" LOCATE = SITE "M23" LEVEL 1;
+COMP "usb_siwua" LOCATE = SITE "AD2" LEVEL 1;
+COMP "osc_en_b" LOCATE = SITE "C10" LEVEL 1;
+COMP "usb_d<0>" LOCATE = SITE "G4" LEVEL 1;
+COMP "usb_d<1>" LOCATE = SITE "K5" LEVEL 1;
+COMP "usb_d<2>" LOCATE = SITE "K4" LEVEL 1;
+COMP "usb_d<3>" LOCATE = SITE "K3" LEVEL 1;
+COMP "usb_d<4>" LOCATE = SITE "L3" LEVEL 1;
+COMP "usb_d<5>" LOCATE = SITE "Y2" LEVEL 1;
+COMP "usb_d<6>" LOCATE = SITE "Y1" LEVEL 1;
+COMP "usb_d<7>" LOCATE = SITE "AA2" LEVEL 1;
+COMP "usb_rxfn" LOCATE = SITE "AB1" LEVEL 1;
+COMP "usb_txen" LOCATE = SITE "AC1" LEVEL 1;
+TIMEGRP mk_clkrst_clkdv_dcm = BEL "blk_drdy_delay" BEL "mk_clkrst/u20/cnt_0"
+        BEL "mk_clkrst/u20/cnt_1" BEL "mk_clkrst/u20/cnt_2" BEL
+        "mk_clkrst/u20/cnt_3" BEL "mk_clkrst/u20/cnt_4" BEL
+        "mk_clkrst/u20/cnt_5" BEL "mk_clkrst/u20/cnt_6" BEL
+        "mk_clkrst/u20/cnt_7" BEL "mk_clkrst/u20/cnt_8" BEL
+        "mk_clkrst/u20/cnt_9" BEL "mk_clkrst/u20/cnt_10" BEL
+        "mk_clkrst/u20/cnt_11" BEL "mk_clkrst/u20/cnt_12" BEL
+        "mk_clkrst/u20/cnt_13" BEL "mk_clkrst/u20/cnt_14" BEL
+        "mk_clkrst/u20/cnt_15" BEL "ctr_ftdi_usb/state_FSM_FFd1" BEL
+        "ctr_ftdi_usb/state_FSM_FFd8" BEL "ctr_ftdi_usb/state_FSM_FFd2" BEL
+        "ctr_ftdi_usb/state_FSM_FFd9" BEL "ctr_ftdi_usb/state_FSM_FFd3" BEL
+        "ctr_ftdi_usb/state_FSM_FFd10" BEL "ctr_ftdi_usb/state_FSM_FFd4" BEL
+        "ctr_ftdi_usb/state_FSM_FFd11" BEL "ctr_ftdi_usb/state_FSM_FFd5" BEL
+        "ctr_ftdi_usb/state_FSM_FFd12" BEL "ctr_ftdi_usb/state_FSM_FFd6" BEL
+        "ctr_ftdi_usb/state_FSM_FFd15" BEL "ctr_ftdi_usb/state_FSM_FFd14" BEL
+        "ctr_ftdi_usb/state_FSM_FFd13" BEL "ctr_ftdi_usb/state_FSM_FFd7" BEL
+        "ctr_ftdi_usb/re" BEL "ctr_ftdi_usb/usb_rdn" BEL "ctr_ftdi_usb/we" BEL
+        "ctr_ftdi_usb/usb_wr" BEL "ctr_ftdi_usb/txen_reg" BEL
+        "ctr_ftdi_usb/rxfn_reg" BEL "fifo_wr/cnt_4" BEL "fifo_wr/cnt_3" BEL
+        "fifo_wr/cnt_2" BEL "fifo_wr/cnt_1" BEL "fifo_wr/cnt_0" BEL
+        "fifo_wr/ra_4" BEL "fifo_wr/ra_3" BEL "fifo_wr/ra_2" BEL
+        "fifo_wr/ra_1" BEL "fifo_wr/ra_0" BEL "fifo_wr/wa_4" BEL
+        "fifo_wr/wa_3" BEL "fifo_wr/wa_2" BEL "fifo_wr/wa_1" BEL
+        "fifo_wr/wa_0" BEL "fifo_wr/Mram_mem16.SLICEM_F" BEL
+        "fifo_wr/Mram_mem16.SLICEM_G" BEL "fifo_wr/Mram_mem15.SLICEM_F" BEL
+        "fifo_wr/Mram_mem15.SLICEM_G" BEL "fifo_wr/Mram_mem14.SLICEM_F" BEL
+        "fifo_wr/Mram_mem14.SLICEM_G" BEL "fifo_wr/Mram_mem13.SLICEM_F" BEL
+        "fifo_wr/Mram_mem13.SLICEM_G" BEL "fifo_wr/Mram_mem12.SLICEM_F" BEL
+        "fifo_wr/Mram_mem12.SLICEM_G" BEL "fifo_wr/Mram_mem11.SLICEM_F" BEL
+        "fifo_wr/Mram_mem11.SLICEM_G" BEL "fifo_wr/Mram_mem10.SLICEM_F" BEL
+        "fifo_wr/Mram_mem10.SLICEM_G" BEL "fifo_wr/Mram_mem9.SLICEM_F" BEL
+        "fifo_wr/Mram_mem9.SLICEM_G" BEL "fifo_wr/Mram_mem8.SLICEM_F" BEL
+        "fifo_wr/Mram_mem8.SLICEM_G" BEL "fifo_wr/Mram_mem7.SLICEM_F" BEL
+        "fifo_wr/Mram_mem7.SLICEM_G" BEL "fifo_wr/Mram_mem6.SLICEM_F" BEL
+        "fifo_wr/Mram_mem6.SLICEM_G" BEL "fifo_wr/Mram_mem5.SLICEM_F" BEL
+        "fifo_wr/Mram_mem5.SLICEM_G" BEL "fifo_wr/Mram_mem4.SLICEM_F" BEL
+        "fifo_wr/Mram_mem4.SLICEM_G" BEL "fifo_wr/Mram_mem3.SLICEM_F" BEL
+        "fifo_wr/Mram_mem3.SLICEM_G" BEL "fifo_wr/Mram_mem2.SLICEM_F" BEL
+        "fifo_wr/Mram_mem2.SLICEM_G" BEL "fifo_wr/Mram_mem1.SLICEM_F" BEL
+        "fifo_wr/Mram_mem1.SLICEM_G" BEL "fifo_wr/ra1_4" BEL "fifo_wr/ra1_3"
+        BEL "fifo_wr/ra1_2" BEL "fifo_wr/ra1_1" BEL "fifo_wr/ra1_0" BEL
+        "fifo_wr/aemp" BEL "fifo_wr/emp" BEL "fifo_wr/aful" BEL "fifo_wr/ful"
+        BEL "fifo_rd/cnt_4" BEL "fifo_rd/cnt_3" BEL "fifo_rd/cnt_2" BEL
+        "fifo_rd/cnt_1" BEL "fifo_rd/cnt_0" BEL "fifo_rd/ra_4" BEL
+        "fifo_rd/ra_3" BEL "fifo_rd/ra_2" BEL "fifo_rd/ra_1" BEL
+        "fifo_rd/ra_0" BEL "fifo_rd/wa_4" BEL "fifo_rd/wa_3" BEL
+        "fifo_rd/wa_2" BEL "fifo_rd/wa_1" BEL "fifo_rd/wa_0" BEL
+        "fifo_rd/Mram_mem16.SLICEM_F" BEL "fifo_rd/Mram_mem16.SLICEM_G" BEL
+        "fifo_rd/Mram_mem15.SLICEM_F" BEL "fifo_rd/Mram_mem15.SLICEM_G" BEL
+        "fifo_rd/Mram_mem14.SLICEM_F" BEL "fifo_rd/Mram_mem14.SLICEM_G" BEL
+        "fifo_rd/Mram_mem13.SLICEM_F" BEL "fifo_rd/Mram_mem13.SLICEM_G" BEL
+        "fifo_rd/Mram_mem12.SLICEM_F" BEL "fifo_rd/Mram_mem12.SLICEM_G" BEL
+        "fifo_rd/Mram_mem11.SLICEM_F" BEL "fifo_rd/Mram_mem11.SLICEM_G" BEL
+        "fifo_rd/Mram_mem10.SLICEM_F" BEL "fifo_rd/Mram_mem10.SLICEM_G" BEL
+        "fifo_rd/Mram_mem9.SLICEM_F" BEL "fifo_rd/Mram_mem9.SLICEM_G" BEL
+        "fifo_rd/Mram_mem8.SLICEM_F" BEL "fifo_rd/Mram_mem8.SLICEM_G" BEL
+        "fifo_rd/Mram_mem7.SLICEM_F" BEL "fifo_rd/Mram_mem7.SLICEM_G" BEL
+        "fifo_rd/Mram_mem6.SLICEM_F" BEL "fifo_rd/Mram_mem6.SLICEM_G" BEL
+        "fifo_rd/Mram_mem5.SLICEM_F" BEL "fifo_rd/Mram_mem5.SLICEM_G" BEL
+        "fifo_rd/Mram_mem4.SLICEM_F" BEL "fifo_rd/Mram_mem4.SLICEM_G" BEL
+        "fifo_rd/Mram_mem3.SLICEM_F" BEL "fifo_rd/Mram_mem3.SLICEM_G" BEL
+        "fifo_rd/Mram_mem2.SLICEM_F" BEL "fifo_rd/Mram_mem2.SLICEM_G" BEL
+        "fifo_rd/Mram_mem1.SLICEM_F" BEL "fifo_rd/Mram_mem1.SLICEM_G" BEL
+        "fifo_rd/ra1_4" BEL "fifo_rd/ra1_3" BEL "fifo_rd/ra1_2" BEL
+        "fifo_rd/ra1_1" BEL "fifo_rd/ra1_0" BEL "fifo_rd/aemp" BEL
+        "fifo_rd/emp" BEL "fifo_rd/aful" BEL "fifo_rd/ful" BEL
+        "ctrl_lbus/state_FSM_FFd18" BEL "ctrl_lbus/state_FSM_FFd25" BEL
+        "ctrl_lbus/state_FSM_FFd22" BEL "ctrl_lbus/state_FSM_FFd19" BEL
+        "ctrl_lbus/state_FSM_FFd8" BEL "ctrl_lbus/state_FSM_FFd5" BEL
+        "ctrl_lbus/state_FSM_FFd26" BEL "ctrl_lbus/state_FSM_FFd27" BEL
+        "ctrl_lbus/state_FSM_FFd23" BEL "ctrl_lbus/state_FSM_FFd24" BEL
+        "ctrl_lbus/state_FSM_FFd20" BEL "ctrl_lbus/state_FSM_FFd21" BEL
+        "ctrl_lbus/state_FSM_FFd17" BEL "ctrl_lbus/state_FSM_FFd16" BEL
+        "ctrl_lbus/state_FSM_FFd14" BEL "ctrl_lbus/state_FSM_FFd12" BEL
+        "ctrl_lbus/state_FSM_FFd11" BEL "ctrl_lbus/state_FSM_FFd13" BEL
+        "ctrl_lbus/state_FSM_FFd9" BEL "ctrl_lbus/state_FSM_FFd10" BEL
+        "ctrl_lbus/state_FSM_FFd6" BEL "ctrl_lbus/state_FSM_FFd7" BEL
+        "ctrl_lbus/state_FSM_FFd4" BEL "ctrl_lbus/state_FSM_FFd3" BEL
+        "ctrl_lbus/state_FSM_FFd2" BEL "ctrl_lbus/state_FSM_FFd1" BEL
+        "ctrl_lbus/lbus_di_0" BEL "ctrl_lbus/lbus_di_1" BEL
+        "ctrl_lbus/lbus_di_3" BEL "ctrl_lbus/lbus_di_4" BEL
+        "ctrl_lbus/lbus_di_2" BEL "ctrl_lbus/lbus_di_5" BEL
+        "ctrl_lbus/lbus_di_6" BEL "ctrl_lbus/lbus_di_8" BEL
+        "ctrl_lbus/lbus_di_9" BEL "ctrl_lbus/lbus_di_7" BEL
+        "ctrl_lbus/lbus_di_11" BEL "ctrl_lbus/lbus_di_12" BEL
+        "ctrl_lbus/lbus_di_10" BEL "ctrl_lbus/lbus_di_14" BEL
+        "ctrl_lbus/lbus_di_15" BEL "ctrl_lbus/lbus_di_13" BEL
+        "ctrl_lbus/lbus_a_0" BEL "ctrl_lbus/lbus_a_1" BEL "ctrl_lbus/lbus_a_3"
+        BEL "ctrl_lbus/lbus_a_4" BEL "ctrl_lbus/lbus_a_2" BEL
+        "ctrl_lbus/lbus_a_5" BEL "ctrl_lbus/lbus_a_6" BEL "ctrl_lbus/lbus_a_8"
+        BEL "ctrl_lbus/lbus_a_9" BEL "ctrl_lbus/lbus_a_7" BEL
+        "ctrl_lbus/lbus_a_10" BEL "ctrl_lbus/lbus_a_11" BEL
+        "ctrl_lbus/lbus_a_13" BEL "ctrl_lbus/lbus_a_14" BEL
+        "ctrl_lbus/lbus_a_12" BEL "ctrl_lbus/lbus_a_15" BEL
+        "ctrl_lbus/fetch_15" BEL "ctrl_lbus/fetch_14" BEL "ctrl_lbus/fetch_13"
+        BEL "ctrl_lbus/fetch_12" BEL "ctrl_lbus/fetch_11" BEL
+        "ctrl_lbus/fetch_10" BEL "ctrl_lbus/fetch_9" BEL "ctrl_lbus/fetch_8"
+        BEL "ctrl_lbus/fetch_7" BEL "ctrl_lbus/fetch_6" BEL
+        "ctrl_lbus/fetch_5" BEL "ctrl_lbus/fetch_4" BEL "ctrl_lbus/fetch_3"
+        BEL "ctrl_lbus/fetch_2" BEL "ctrl_lbus/fetch_1" BEL
+        "ctrl_lbus/fetch_0" BEL "ctrl_lbus/lbus_wrn" BEL "ctrl_lbus/lbus_rdn"
+        BEL "ctrl_lbus/cmd_7" BEL "ctrl_lbus/cmd_6" BEL "ctrl_lbus/cmd_5" BEL
+        "ctrl_lbus/cmd_4" BEL "ctrl_lbus/cmd_3" BEL "ctrl_lbus/cmd_2" BEL
+        "ctrl_lbus/cmd_1" BEL "ctrl_lbus/cmd_0" BEL "ctrl_lbus/re" BEL
+        "ctrl_lbus/wd_7" BEL "ctrl_lbus/wd_6" BEL "ctrl_lbus/wd_5" BEL
+        "ctrl_lbus/wd_4" BEL "ctrl_lbus/wd_3" BEL "ctrl_lbus/wd_2" BEL
+        "ctrl_lbus/wd_1" BEL "ctrl_lbus/wd_0" BEL "ctrl_lbus/cnt_3" BEL
+        "ctrl_lbus/cnt_2" BEL "ctrl_lbus/cnt_1" BEL "ctrl_lbus/cnt_0" BEL
+        "ctrl_lbus/we" BEL "lbus_if/ctrl_1" BEL "lbus_if/lbus_do_15" BEL
+        "lbus_if/lbus_do_14" BEL "lbus_if/lbus_do_13" BEL "lbus_if/lbus_do_12"
+        BEL "lbus_if/lbus_do_11" BEL "lbus_if/lbus_do_10" BEL
+        "lbus_if/lbus_do_9" BEL "lbus_if/lbus_do_8" BEL "lbus_if/lbus_do_7"
+        BEL "lbus_if/lbus_do_6" BEL "lbus_if/lbus_do_5" BEL
+        "lbus_if/lbus_do_4" BEL "lbus_if/lbus_do_3" BEL "lbus_if/lbus_do_2"
+        BEL "lbus_if/lbus_do_1" BEL "lbus_if/lbus_do_0" BEL
+        "lbus_if/blk_din_0" BEL "lbus_if/blk_din_1" BEL "lbus_if/blk_din_2"
+        BEL "lbus_if/blk_din_3" BEL "lbus_if/blk_din_4" BEL
+        "lbus_if/blk_din_5" BEL "lbus_if/blk_din_6" BEL "lbus_if/blk_din_7"
+        BEL "lbus_if/blk_din_8" BEL "lbus_if/blk_din_9" BEL
+        "lbus_if/blk_din_10" BEL "lbus_if/blk_din_11" BEL "lbus_if/blk_din_12"
+        BEL "lbus_if/blk_din_13" BEL "lbus_if/blk_din_14" BEL
+        "lbus_if/blk_din_15" BEL "lbus_if/blk_din_16" BEL "lbus_if/blk_din_17"
+        BEL "lbus_if/blk_din_18" BEL "lbus_if/blk_din_19" BEL
+        "lbus_if/blk_din_20" BEL "lbus_if/blk_din_21" BEL "lbus_if/blk_din_22"
+        BEL "lbus_if/blk_din_23" BEL "lbus_if/blk_din_24" BEL
+        "lbus_if/blk_din_25" BEL "lbus_if/blk_din_26" BEL "lbus_if/blk_din_27"
+        BEL "lbus_if/blk_din_28" BEL "lbus_if/blk_din_30" BEL
+        "lbus_if/blk_din_31" BEL "lbus_if/blk_din_29" BEL "lbus_if/blk_din_32"
+        BEL "lbus_if/blk_din_33" BEL "lbus_if/blk_din_34" BEL
+        "lbus_if/blk_din_35" BEL "lbus_if/blk_din_36" BEL "lbus_if/blk_din_37"
+        BEL "lbus_if/blk_din_38" BEL "lbus_if/blk_din_39" BEL
+        "lbus_if/blk_din_40" BEL "lbus_if/blk_din_41" BEL "lbus_if/blk_din_42"
+        BEL "lbus_if/blk_din_43" BEL "lbus_if/blk_din_44" BEL
+        "lbus_if/blk_din_45" BEL "lbus_if/blk_din_46" BEL "lbus_if/blk_din_47"
+        BEL "lbus_if/blk_din_48" BEL "lbus_if/blk_din_49" BEL
+        "lbus_if/blk_din_50" BEL "lbus_if/blk_din_51" BEL "lbus_if/blk_din_52"
+        BEL "lbus_if/blk_din_53" BEL "lbus_if/blk_din_54" BEL
+        "lbus_if/blk_din_55" BEL "lbus_if/blk_din_56" BEL "lbus_if/blk_din_57"
+        BEL "lbus_if/blk_din_58" BEL "lbus_if/blk_din_59" BEL
+        "lbus_if/blk_din_60" BEL "lbus_if/blk_din_61" BEL "lbus_if/blk_din_63"
+        BEL "lbus_if/blk_din_64" BEL "lbus_if/blk_din_62" BEL
+        "lbus_if/blk_din_65" BEL "lbus_if/blk_din_66" BEL "lbus_if/blk_din_67"
+        BEL "lbus_if/blk_din_68" BEL "lbus_if/blk_din_69" BEL
+        "lbus_if/blk_din_70" BEL "lbus_if/blk_din_71" BEL "lbus_if/blk_din_72"
+        BEL "lbus_if/blk_din_73" BEL "lbus_if/blk_din_74" BEL
+        "lbus_if/blk_din_75" BEL "lbus_if/blk_din_76" BEL "lbus_if/blk_din_77"
+        BEL "lbus_if/blk_din_78" BEL "lbus_if/blk_din_79" BEL
+        "lbus_if/blk_din_80" BEL "lbus_if/blk_din_81" BEL "lbus_if/blk_din_82"
+        BEL "lbus_if/blk_din_83" BEL "lbus_if/blk_din_84" BEL
+        "lbus_if/blk_din_85" BEL "lbus_if/blk_din_86" BEL "lbus_if/blk_din_87"
+        BEL "lbus_if/blk_din_88" BEL "lbus_if/blk_din_89" BEL
+        "lbus_if/blk_din_90" BEL "lbus_if/blk_din_91" BEL "lbus_if/blk_din_92"
+        BEL "lbus_if/blk_din_93" BEL "lbus_if/blk_din_94" BEL
+        "lbus_if/blk_din_96" BEL "lbus_if/blk_din_97" BEL "lbus_if/blk_din_95"
+        BEL "lbus_if/blk_din_98" BEL "lbus_if/blk_din_99" BEL
+        "lbus_if/blk_din_100" BEL "lbus_if/blk_din_101" BEL
+        "lbus_if/blk_din_102" BEL "lbus_if/blk_din_103" BEL
+        "lbus_if/blk_din_104" BEL "lbus_if/blk_din_105" BEL
+        "lbus_if/blk_din_106" BEL "lbus_if/blk_din_107" BEL
+        "lbus_if/blk_din_108" BEL "lbus_if/blk_din_109" BEL
+        "lbus_if/blk_din_110" BEL "lbus_if/blk_din_111" BEL
+        "lbus_if/blk_din_113" BEL "lbus_if/blk_din_114" BEL
+        "lbus_if/blk_din_112" BEL "lbus_if/blk_din_115" BEL
+        "lbus_if/blk_din_116" BEL "lbus_if/blk_din_117" BEL
+        "lbus_if/blk_din_118" BEL "lbus_if/blk_din_119" BEL
+        "lbus_if/blk_din_120" BEL "lbus_if/blk_din_121" BEL
+        "lbus_if/blk_din_122" BEL "lbus_if/blk_din_123" BEL
+        "lbus_if/blk_din_124" BEL "lbus_if/blk_din_125" BEL
+        "lbus_if/blk_din_126" BEL "lbus_if/blk_din_127" BEL
+        "lbus_if/blk_kin_0" BEL "lbus_if/blk_kin_2" BEL "lbus_if/blk_kin_3"
+        BEL "lbus_if/blk_kin_1" BEL "lbus_if/blk_kin_4" BEL
+        "lbus_if/blk_kin_5" BEL "lbus_if/blk_kin_6" BEL "lbus_if/blk_kin_7"
+        BEL "lbus_if/blk_kin_8" BEL "lbus_if/blk_kin_9" BEL
+        "lbus_if/blk_kin_10" BEL "lbus_if/blk_kin_11" BEL "lbus_if/blk_kin_12"
+        BEL "lbus_if/blk_kin_13" BEL "lbus_if/blk_kin_14" BEL
+        "lbus_if/blk_kin_15" BEL "lbus_if/blk_kin_16" BEL "lbus_if/blk_kin_17"
+        BEL "lbus_if/blk_kin_18" BEL "lbus_if/blk_kin_19" BEL
+        "lbus_if/blk_kin_20" BEL "lbus_if/blk_kin_21" BEL "lbus_if/blk_kin_22"
+        BEL "lbus_if/blk_kin_23" BEL "lbus_if/blk_kin_24" BEL
+        "lbus_if/blk_kin_25" BEL "lbus_if/blk_kin_26" BEL "lbus_if/blk_kin_27"
+        BEL "lbus_if/blk_kin_28" BEL "lbus_if/blk_kin_29" BEL
+        "lbus_if/blk_kin_30" BEL "lbus_if/blk_kin_31" BEL "lbus_if/blk_kin_32"
+        BEL "lbus_if/blk_kin_33" BEL "lbus_if/blk_kin_35" BEL
+        "lbus_if/blk_kin_36" BEL "lbus_if/blk_kin_34" BEL "lbus_if/blk_kin_37"
+        BEL "lbus_if/blk_kin_38" BEL "lbus_if/blk_kin_39" BEL
+        "lbus_if/blk_kin_40" BEL "lbus_if/blk_kin_41" BEL "lbus_if/blk_kin_42"
+        BEL "lbus_if/blk_kin_43" BEL "lbus_if/blk_kin_44" BEL
+        "lbus_if/blk_kin_45" BEL "lbus_if/blk_kin_46" BEL "lbus_if/blk_kin_47"
+        BEL "lbus_if/blk_kin_48" BEL "lbus_if/blk_kin_49" BEL
+        "lbus_if/blk_kin_50" BEL "lbus_if/blk_kin_52" BEL "lbus_if/blk_kin_53"
+        BEL "lbus_if/blk_kin_51" BEL "lbus_if/blk_kin_54" BEL
+        "lbus_if/blk_kin_55" BEL "lbus_if/blk_kin_56" BEL "lbus_if/blk_kin_57"
+        BEL "lbus_if/blk_kin_58" BEL "lbus_if/blk_kin_59" BEL
+        "lbus_if/blk_kin_60" BEL "lbus_if/blk_kin_61" BEL "lbus_if/blk_kin_62"
+        BEL "lbus_if/blk_kin_63" BEL "lbus_if/blk_kin_64" BEL
+        "lbus_if/blk_kin_65" BEL "lbus_if/blk_kin_66" BEL "lbus_if/blk_kin_67"
+        BEL "lbus_if/blk_kin_69" BEL "lbus_if/blk_kin_70" BEL
+        "lbus_if/blk_kin_68" BEL "lbus_if/blk_kin_71" BEL "lbus_if/blk_kin_72"
+        BEL "lbus_if/blk_kin_73" BEL "lbus_if/blk_kin_74" BEL
+        "lbus_if/blk_kin_75" BEL "lbus_if/blk_kin_76" BEL "lbus_if/blk_kin_77"
+        BEL "lbus_if/blk_kin_78" BEL "lbus_if/blk_kin_79" BEL
+        "lbus_if/blk_kin_80" BEL "lbus_if/blk_kin_81" BEL "lbus_if/blk_kin_82"
+        BEL "lbus_if/blk_kin_83" BEL "lbus_if/blk_kin_84" BEL
+        "lbus_if/blk_kin_85" BEL "lbus_if/blk_kin_86" BEL "lbus_if/blk_kin_87"
+        BEL "lbus_if/blk_kin_88" BEL "lbus_if/blk_kin_89" BEL
+        "lbus_if/blk_kin_90" BEL "lbus_if/blk_kin_91" BEL "lbus_if/blk_kin_92"
+        BEL "lbus_if/blk_kin_93" BEL "lbus_if/blk_kin_94" BEL
+        "lbus_if/blk_kin_95" BEL "lbus_if/blk_kin_96" BEL "lbus_if/blk_kin_97"
+        BEL "lbus_if/blk_kin_98" BEL "lbus_if/blk_kin_99" BEL
+        "lbus_if/blk_kin_100" BEL "lbus_if/blk_kin_102" BEL
+        "lbus_if/blk_kin_103" BEL "lbus_if/blk_kin_101" BEL
+        "lbus_if/blk_kin_104" BEL "lbus_if/blk_kin_105" BEL
+        "lbus_if/blk_kin_106" BEL "lbus_if/blk_kin_107" BEL
+        "lbus_if/blk_kin_108" BEL "lbus_if/blk_kin_109" BEL
+        "lbus_if/blk_kin_110" BEL "lbus_if/blk_kin_111" BEL
+        "lbus_if/blk_kin_112" BEL "lbus_if/blk_kin_113" BEL
+        "lbus_if/blk_kin_114" BEL "lbus_if/blk_kin_115" BEL
+        "lbus_if/blk_kin_116" BEL "lbus_if/blk_kin_117" BEL
+        "lbus_if/blk_kin_119" BEL "lbus_if/blk_kin_120" BEL
+        "lbus_if/blk_kin_118" BEL "lbus_if/blk_kin_121" BEL
+        "lbus_if/blk_kin_122" BEL "lbus_if/blk_kin_123" BEL
+        "lbus_if/blk_kin_124" BEL "lbus_if/blk_kin_125" BEL
+        "lbus_if/blk_kin_126" BEL "lbus_if/blk_kin_127" BEL
+        "lbus_if/blk_encdec" BEL "lbus_if/blk_rstn" BEL "lbus_if/blk_krdy" BEL
+        "lbus_if/blk_trig_3" BEL "lbus_if/blk_trig_2" BEL "lbus_if/blk_trig_1"
+        BEL "lbus_if/blk_trig_0" BEL "lbus_if/blk_dout_reg_127" BEL
+        "lbus_if/blk_dout_reg_126" BEL "lbus_if/blk_dout_reg_125" BEL
+        "lbus_if/blk_dout_reg_124" BEL "lbus_if/blk_dout_reg_123" BEL
+        "lbus_if/blk_dout_reg_122" BEL "lbus_if/blk_dout_reg_121" BEL
+        "lbus_if/blk_dout_reg_120" BEL "lbus_if/blk_dout_reg_119" BEL
+        "lbus_if/blk_dout_reg_118" BEL "lbus_if/blk_dout_reg_117" BEL
+        "lbus_if/blk_dout_reg_116" BEL "lbus_if/blk_dout_reg_115" BEL
+        "lbus_if/blk_dout_reg_114" BEL "lbus_if/blk_dout_reg_113" BEL
+        "lbus_if/blk_dout_reg_112" BEL "lbus_if/blk_dout_reg_111" BEL
+        "lbus_if/blk_dout_reg_110" BEL "lbus_if/blk_dout_reg_109" BEL
+        "lbus_if/blk_dout_reg_108" BEL "lbus_if/blk_dout_reg_107" BEL
+        "lbus_if/blk_dout_reg_106" BEL "lbus_if/blk_dout_reg_105" BEL
+        "lbus_if/blk_dout_reg_104" BEL "lbus_if/blk_dout_reg_103" BEL
+        "lbus_if/blk_dout_reg_102" BEL "lbus_if/blk_dout_reg_101" BEL
+        "lbus_if/blk_dout_reg_100" BEL "lbus_if/blk_dout_reg_99" BEL
+        "lbus_if/blk_dout_reg_98" BEL "lbus_if/blk_dout_reg_97" BEL
+        "lbus_if/blk_dout_reg_96" BEL "lbus_if/blk_dout_reg_95" BEL
+        "lbus_if/blk_dout_reg_94" BEL "lbus_if/blk_dout_reg_93" BEL
+        "lbus_if/blk_dout_reg_92" BEL "lbus_if/blk_dout_reg_91" BEL
+        "lbus_if/blk_dout_reg_90" BEL "lbus_if/blk_dout_reg_89" BEL
+        "lbus_if/blk_dout_reg_88" BEL "lbus_if/blk_dout_reg_87" BEL
+        "lbus_if/blk_dout_reg_86" BEL "lbus_if/blk_dout_reg_85" BEL
+        "lbus_if/blk_dout_reg_84" BEL "lbus_if/blk_dout_reg_83" BEL
+        "lbus_if/blk_dout_reg_82" BEL "lbus_if/blk_dout_reg_81" BEL
+        "lbus_if/blk_dout_reg_80" BEL "lbus_if/blk_dout_reg_79" BEL
+        "lbus_if/blk_dout_reg_78" BEL "lbus_if/blk_dout_reg_77" BEL
+        "lbus_if/blk_dout_reg_76" BEL "lbus_if/blk_dout_reg_75" BEL
+        "lbus_if/blk_dout_reg_74" BEL "lbus_if/blk_dout_reg_73" BEL
+        "lbus_if/blk_dout_reg_72" BEL "lbus_if/blk_dout_reg_71" BEL
+        "lbus_if/blk_dout_reg_70" BEL "lbus_if/blk_dout_reg_69" BEL
+        "lbus_if/blk_dout_reg_68" BEL "lbus_if/blk_dout_reg_67" BEL
+        "lbus_if/blk_dout_reg_66" BEL "lbus_if/blk_dout_reg_65" BEL
+        "lbus_if/blk_dout_reg_64" BEL "lbus_if/blk_dout_reg_63" BEL
+        "lbus_if/blk_dout_reg_62" BEL "lbus_if/blk_dout_reg_61" BEL
+        "lbus_if/blk_dout_reg_60" BEL "lbus_if/blk_dout_reg_59" BEL
+        "lbus_if/blk_dout_reg_58" BEL "lbus_if/blk_dout_reg_57" BEL
+        "lbus_if/blk_dout_reg_56" BEL "lbus_if/blk_dout_reg_55" BEL
+        "lbus_if/blk_dout_reg_54" BEL "lbus_if/blk_dout_reg_53" BEL
+        "lbus_if/blk_dout_reg_52" BEL "lbus_if/blk_dout_reg_51" BEL
+        "lbus_if/blk_dout_reg_50" BEL "lbus_if/blk_dout_reg_49" BEL
+        "lbus_if/blk_dout_reg_48" BEL "lbus_if/blk_dout_reg_47" BEL
+        "lbus_if/blk_dout_reg_46" BEL "lbus_if/blk_dout_reg_45" BEL
+        "lbus_if/blk_dout_reg_44" BEL "lbus_if/blk_dout_reg_43" BEL
+        "lbus_if/blk_dout_reg_42" BEL "lbus_if/blk_dout_reg_41" BEL
+        "lbus_if/blk_dout_reg_40" BEL "lbus_if/blk_dout_reg_39" BEL
+        "lbus_if/blk_dout_reg_38" BEL "lbus_if/blk_dout_reg_37" BEL
+        "lbus_if/blk_dout_reg_36" BEL "lbus_if/blk_dout_reg_35" BEL
+        "lbus_if/blk_dout_reg_34" BEL "lbus_if/blk_dout_reg_33" BEL
+        "lbus_if/blk_dout_reg_32" BEL "lbus_if/blk_dout_reg_31" BEL
+        "lbus_if/blk_dout_reg_30" BEL "lbus_if/blk_dout_reg_29" BEL
+        "lbus_if/blk_dout_reg_28" BEL "lbus_if/blk_dout_reg_27" BEL
+        "lbus_if/blk_dout_reg_26" BEL "lbus_if/blk_dout_reg_25" BEL
+        "lbus_if/blk_dout_reg_24" BEL "lbus_if/blk_dout_reg_23" BEL
+        "lbus_if/blk_dout_reg_22" BEL "lbus_if/blk_dout_reg_21" BEL
+        "lbus_if/blk_dout_reg_20" BEL "lbus_if/blk_dout_reg_19" BEL
+        "lbus_if/blk_dout_reg_18" BEL "lbus_if/blk_dout_reg_17" BEL
+        "lbus_if/blk_dout_reg_16" BEL "lbus_if/blk_dout_reg_15" BEL
+        "lbus_if/blk_dout_reg_14" BEL "lbus_if/blk_dout_reg_13" BEL
+        "lbus_if/blk_dout_reg_12" BEL "lbus_if/blk_dout_reg_11" BEL
+        "lbus_if/blk_dout_reg_10" BEL "lbus_if/blk_dout_reg_9" BEL
+        "lbus_if/blk_dout_reg_8" BEL "lbus_if/blk_dout_reg_7" BEL
+        "lbus_if/blk_dout_reg_6" BEL "lbus_if/blk_dout_reg_5" BEL
+        "lbus_if/blk_dout_reg_4" BEL "lbus_if/blk_dout_reg_3" BEL
+        "lbus_if/blk_dout_reg_2" BEL "lbus_if/blk_dout_reg_1" BEL
+        "lbus_if/blk_dout_reg_0" BEL "lbus_if/ctrl_0" BEL "lbus_if/trig_wr"
+        BEL "lbus_if/wr_1" BEL "lbus_if/wr_0" BEL "lbus_if/ctrl_2" BEL
+        "AES_Composite_enc/rnd_0" BEL "AES_Composite_enc/rcon_0" BEL
+        "AES_Composite_enc/rcon_1" BEL "AES_Composite_enc/rcon_2" BEL
+        "AES_Composite_enc/rcon_3" BEL "AES_Composite_enc/rcon_4" BEL
+        "AES_Composite_enc/rcon_5" BEL "AES_Composite_enc/rcon_6" BEL
+        "AES_Composite_enc/rcon_7" BEL "AES_Composite_enc/rkey_127" BEL
+        "AES_Composite_enc/rkey_126" BEL "AES_Composite_enc/rkey_125" BEL
+        "AES_Composite_enc/rkey_124" BEL "AES_Composite_enc/rkey_123" BEL
+        "AES_Composite_enc/rkey_122" BEL "AES_Composite_enc/rkey_121" BEL
+        "AES_Composite_enc/rkey_120" BEL "AES_Composite_enc/rkey_119" BEL
+        "AES_Composite_enc/rkey_118" BEL "AES_Composite_enc/rkey_117" BEL
+        "AES_Composite_enc/rkey_116" BEL "AES_Composite_enc/rkey_115" BEL
+        "AES_Composite_enc/rkey_114" BEL "AES_Composite_enc/rkey_113" BEL
+        "AES_Composite_enc/rkey_112" BEL "AES_Composite_enc/rkey_111" BEL
+        "AES_Composite_enc/rkey_110" BEL "AES_Composite_enc/rkey_109" BEL
+        "AES_Composite_enc/rkey_108" BEL "AES_Composite_enc/rkey_107" BEL
+        "AES_Composite_enc/rkey_106" BEL "AES_Composite_enc/rkey_105" BEL
+        "AES_Composite_enc/rkey_104" BEL "AES_Composite_enc/rkey_103" BEL
+        "AES_Composite_enc/rkey_102" BEL "AES_Composite_enc/rkey_101" BEL
+        "AES_Composite_enc/rkey_100" BEL "AES_Composite_enc/rkey_99" BEL
+        "AES_Composite_enc/rkey_98" BEL "AES_Composite_enc/rkey_97" BEL
+        "AES_Composite_enc/rkey_96" BEL "AES_Composite_enc/rkey_95" BEL
+        "AES_Composite_enc/rkey_94" BEL "AES_Composite_enc/rkey_93" BEL
+        "AES_Composite_enc/rkey_92" BEL "AES_Composite_enc/rkey_91" BEL
+        "AES_Composite_enc/rkey_90" BEL "AES_Composite_enc/rkey_89" BEL
+        "AES_Composite_enc/rkey_88" BEL "AES_Composite_enc/rkey_87" BEL
+        "AES_Composite_enc/rkey_86" BEL "AES_Composite_enc/rkey_85" BEL
+        "AES_Composite_enc/rkey_84" BEL "AES_Composite_enc/rkey_83" BEL
+        "AES_Composite_enc/rkey_82" BEL "AES_Composite_enc/rkey_81" BEL
+        "AES_Composite_enc/rkey_80" BEL "AES_Composite_enc/rkey_79" BEL
+        "AES_Composite_enc/rkey_78" BEL "AES_Composite_enc/rkey_77" BEL
+        "AES_Composite_enc/rkey_76" BEL "AES_Composite_enc/rkey_75" BEL
+        "AES_Composite_enc/rkey_74" BEL "AES_Composite_enc/rkey_73" BEL
+        "AES_Composite_enc/rkey_72" BEL "AES_Composite_enc/rkey_71" BEL
+        "AES_Composite_enc/rkey_70" BEL "AES_Composite_enc/rkey_69" BEL
+        "AES_Composite_enc/rkey_68" BEL "AES_Composite_enc/rkey_67" BEL
+        "AES_Composite_enc/rkey_66" BEL "AES_Composite_enc/rkey_65" BEL
+        "AES_Composite_enc/rkey_64" BEL "AES_Composite_enc/rkey_63" BEL
+        "AES_Composite_enc/rkey_62" BEL "AES_Composite_enc/rkey_61" BEL
+        "AES_Composite_enc/rkey_60" BEL "AES_Composite_enc/rkey_59" BEL
+        "AES_Composite_enc/rkey_58" BEL "AES_Composite_enc/rkey_57" BEL
+        "AES_Composite_enc/rkey_56" BEL "AES_Composite_enc/rkey_55" BEL
+        "AES_Composite_enc/rkey_54" BEL "AES_Composite_enc/rkey_53" BEL
+        "AES_Composite_enc/rkey_52" BEL "AES_Composite_enc/rkey_51" BEL
+        "AES_Composite_enc/rkey_50" BEL "AES_Composite_enc/rkey_49" BEL
+        "AES_Composite_enc/rkey_48" BEL "AES_Composite_enc/rkey_47" BEL
+        "AES_Composite_enc/rkey_46" BEL "AES_Composite_enc/rkey_45" BEL
+        "AES_Composite_enc/rkey_44" BEL "AES_Composite_enc/rkey_43" BEL
+        "AES_Composite_enc/rkey_42" BEL "AES_Composite_enc/rkey_41" BEL
+        "AES_Composite_enc/rkey_40" BEL "AES_Composite_enc/rkey_39" BEL
+        "AES_Composite_enc/rkey_38" BEL "AES_Composite_enc/rkey_37" BEL
+        "AES_Composite_enc/rkey_36" BEL "AES_Composite_enc/rkey_35" BEL
+        "AES_Composite_enc/rkey_34" BEL "AES_Composite_enc/rkey_33" BEL
+        "AES_Composite_enc/rkey_32" BEL "AES_Composite_enc/rkey_31" BEL
+        "AES_Composite_enc/rkey_30" BEL "AES_Composite_enc/rkey_29" BEL
+        "AES_Composite_enc/rkey_28" BEL "AES_Composite_enc/rkey_27" BEL
+        "AES_Composite_enc/rkey_26" BEL "AES_Composite_enc/rkey_25" BEL
+        "AES_Composite_enc/rkey_24" BEL "AES_Composite_enc/rkey_23" BEL
+        "AES_Composite_enc/rkey_22" BEL "AES_Composite_enc/rkey_21" BEL
+        "AES_Composite_enc/rkey_20" BEL "AES_Composite_enc/rkey_19" BEL
+        "AES_Composite_enc/rkey_18" BEL "AES_Composite_enc/rkey_17" BEL
+        "AES_Composite_enc/rkey_16" BEL "AES_Composite_enc/rkey_15" BEL
+        "AES_Composite_enc/rkey_14" BEL "AES_Composite_enc/rkey_13" BEL
+        "AES_Composite_enc/rkey_12" BEL "AES_Composite_enc/rkey_11" BEL
+        "AES_Composite_enc/rkey_10" BEL "AES_Composite_enc/rkey_9" BEL
+        "AES_Composite_enc/rkey_8" BEL "AES_Composite_enc/rkey_7" BEL
+        "AES_Composite_enc/rkey_6" BEL "AES_Composite_enc/rkey_5" BEL
+        "AES_Composite_enc/rkey_4" BEL "AES_Composite_enc/rkey_3" BEL
+        "AES_Composite_enc/rkey_2" BEL "AES_Composite_enc/rkey_1" BEL
+        "AES_Composite_enc/rkey_0" BEL "AES_Composite_enc/Dvld" BEL
+        "AES_Composite_enc/sel" BEL "AES_Composite_enc/key_127" BEL
+        "AES_Composite_enc/key_126" BEL "AES_Composite_enc/key_125" BEL
+        "AES_Composite_enc/key_124" BEL "AES_Composite_enc/key_123" BEL
+        "AES_Composite_enc/key_122" BEL "AES_Composite_enc/key_121" BEL
+        "AES_Composite_enc/key_120" BEL "AES_Composite_enc/key_119" BEL
+        "AES_Composite_enc/key_118" BEL "AES_Composite_enc/key_117" BEL
+        "AES_Composite_enc/key_116" BEL "AES_Composite_enc/key_115" BEL
+        "AES_Composite_enc/key_114" BEL "AES_Composite_enc/key_113" BEL
+        "AES_Composite_enc/key_112" BEL "AES_Composite_enc/key_111" BEL
+        "AES_Composite_enc/key_110" BEL "AES_Composite_enc/key_109" BEL
+        "AES_Composite_enc/key_108" BEL "AES_Composite_enc/key_107" BEL
+        "AES_Composite_enc/key_106" BEL "AES_Composite_enc/key_105" BEL
+        "AES_Composite_enc/key_104" BEL "AES_Composite_enc/key_103" BEL
+        "AES_Composite_enc/key_102" BEL "AES_Composite_enc/key_101" BEL
+        "AES_Composite_enc/key_100" BEL "AES_Composite_enc/key_99" BEL
+        "AES_Composite_enc/key_98" BEL "AES_Composite_enc/key_97" BEL
+        "AES_Composite_enc/key_96" BEL "AES_Composite_enc/key_95" BEL
+        "AES_Composite_enc/key_94" BEL "AES_Composite_enc/key_93" BEL
+        "AES_Composite_enc/key_92" BEL "AES_Composite_enc/key_91" BEL
+        "AES_Composite_enc/key_90" BEL "AES_Composite_enc/key_89" BEL
+        "AES_Composite_enc/key_88" BEL "AES_Composite_enc/key_87" BEL
+        "AES_Composite_enc/key_86" BEL "AES_Composite_enc/key_85" BEL
+        "AES_Composite_enc/key_84" BEL "AES_Composite_enc/key_83" BEL
+        "AES_Composite_enc/key_82" BEL "AES_Composite_enc/key_81" BEL
+        "AES_Composite_enc/key_80" BEL "AES_Composite_enc/key_79" BEL
+        "AES_Composite_enc/key_78" BEL "AES_Composite_enc/key_77" BEL
+        "AES_Composite_enc/key_76" BEL "AES_Composite_enc/key_75" BEL
+        "AES_Composite_enc/key_74" BEL "AES_Composite_enc/key_73" BEL
+        "AES_Composite_enc/key_72" BEL "AES_Composite_enc/key_71" BEL
+        "AES_Composite_enc/key_70" BEL "AES_Composite_enc/key_69" BEL
+        "AES_Composite_enc/key_68" BEL "AES_Composite_enc/key_67" BEL
+        "AES_Composite_enc/key_66" BEL "AES_Composite_enc/key_65" BEL
+        "AES_Composite_enc/key_64" BEL "AES_Composite_enc/key_63" BEL
+        "AES_Composite_enc/key_62" BEL "AES_Composite_enc/key_61" BEL
+        "AES_Composite_enc/key_60" BEL "AES_Composite_enc/key_59" BEL
+        "AES_Composite_enc/key_58" BEL "AES_Composite_enc/key_57" BEL
+        "AES_Composite_enc/key_56" BEL "AES_Composite_enc/key_55" BEL
+        "AES_Composite_enc/key_54" BEL "AES_Composite_enc/key_53" BEL
+        "AES_Composite_enc/key_52" BEL "AES_Composite_enc/key_51" BEL
+        "AES_Composite_enc/key_50" BEL "AES_Composite_enc/key_49" BEL
+        "AES_Composite_enc/key_48" BEL "AES_Composite_enc/key_47" BEL
+        "AES_Composite_enc/key_46" BEL "AES_Composite_enc/key_45" BEL
+        "AES_Composite_enc/key_44" BEL "AES_Composite_enc/key_43" BEL
+        "AES_Composite_enc/key_42" BEL "AES_Composite_enc/key_41" BEL
+        "AES_Composite_enc/key_40" BEL "AES_Composite_enc/key_39" BEL
+        "AES_Composite_enc/key_38" BEL "AES_Composite_enc/key_37" BEL
+        "AES_Composite_enc/key_36" BEL "AES_Composite_enc/key_35" BEL
+        "AES_Composite_enc/key_34" BEL "AES_Composite_enc/key_33" BEL
+        "AES_Composite_enc/key_32" BEL "AES_Composite_enc/key_31" BEL
+        "AES_Composite_enc/key_30" BEL "AES_Composite_enc/key_29" BEL
+        "AES_Composite_enc/key_28" BEL "AES_Composite_enc/key_27" BEL
+        "AES_Composite_enc/key_26" BEL "AES_Composite_enc/key_25" BEL
+        "AES_Composite_enc/key_24" BEL "AES_Composite_enc/key_23" BEL
+        "AES_Composite_enc/key_22" BEL "AES_Composite_enc/key_21" BEL
+        "AES_Composite_enc/key_20" BEL "AES_Composite_enc/key_19" BEL
+        "AES_Composite_enc/key_18" BEL "AES_Composite_enc/key_17" BEL
+        "AES_Composite_enc/key_16" BEL "AES_Composite_enc/key_15" BEL
+        "AES_Composite_enc/key_14" BEL "AES_Composite_enc/key_13" BEL
+        "AES_Composite_enc/key_12" BEL "AES_Composite_enc/key_11" BEL
+        "AES_Composite_enc/key_10" BEL "AES_Composite_enc/key_9" BEL
+        "AES_Composite_enc/key_8" BEL "AES_Composite_enc/key_7" BEL
+        "AES_Composite_enc/key_6" BEL "AES_Composite_enc/key_5" BEL
+        "AES_Composite_enc/key_4" BEL "AES_Composite_enc/key_3" BEL
+        "AES_Composite_enc/key_2" BEL "AES_Composite_enc/key_1" BEL
+        "AES_Composite_enc/key_0" BEL "AES_Composite_enc/dat_127" BEL
+        "AES_Composite_enc/dat_126" BEL "AES_Composite_enc/dat_125" BEL
+        "AES_Composite_enc/dat_124" BEL "AES_Composite_enc/dat_123" BEL
+        "AES_Composite_enc/dat_122" BEL "AES_Composite_enc/dat_121" BEL
+        "AES_Composite_enc/dat_120" BEL "AES_Composite_enc/dat_119" BEL
+        "AES_Composite_enc/dat_118" BEL "AES_Composite_enc/dat_117" BEL
+        "AES_Composite_enc/dat_116" BEL "AES_Composite_enc/dat_115" BEL
+        "AES_Composite_enc/dat_114" BEL "AES_Composite_enc/dat_113" BEL
+        "AES_Composite_enc/dat_112" BEL "AES_Composite_enc/dat_111" BEL
+        "AES_Composite_enc/dat_110" BEL "AES_Composite_enc/dat_109" BEL
+        "AES_Composite_enc/dat_108" BEL "AES_Composite_enc/dat_107" BEL
+        "AES_Composite_enc/dat_106" BEL "AES_Composite_enc/dat_105" BEL
+        "AES_Composite_enc/dat_104" BEL "AES_Composite_enc/dat_103" BEL
+        "AES_Composite_enc/dat_102" BEL "AES_Composite_enc/dat_101" BEL
+        "AES_Composite_enc/dat_100" BEL "AES_Composite_enc/dat_99" BEL
+        "AES_Composite_enc/dat_98" BEL "AES_Composite_enc/dat_97" BEL
+        "AES_Composite_enc/dat_96" BEL "AES_Composite_enc/dat_95" BEL
+        "AES_Composite_enc/dat_94" BEL "AES_Composite_enc/dat_93" BEL
+        "AES_Composite_enc/dat_92" BEL "AES_Composite_enc/dat_91" BEL
+        "AES_Composite_enc/dat_90" BEL "AES_Composite_enc/dat_89" BEL
+        "AES_Composite_enc/dat_88" BEL "AES_Composite_enc/dat_87" BEL
+        "AES_Composite_enc/dat_86" BEL "AES_Composite_enc/dat_85" BEL
+        "AES_Composite_enc/dat_84" BEL "AES_Composite_enc/dat_83" BEL
+        "AES_Composite_enc/dat_82" BEL "AES_Composite_enc/dat_81" BEL
+        "AES_Composite_enc/dat_80" BEL "AES_Composite_enc/dat_79" BEL
+        "AES_Composite_enc/dat_78" BEL "AES_Composite_enc/dat_77" BEL
+        "AES_Composite_enc/dat_76" BEL "AES_Composite_enc/dat_75" BEL
+        "AES_Composite_enc/dat_74" BEL "AES_Composite_enc/dat_73" BEL
+        "AES_Composite_enc/dat_72" BEL "AES_Composite_enc/dat_71" BEL
+        "AES_Composite_enc/dat_70" BEL "AES_Composite_enc/dat_69" BEL
+        "AES_Composite_enc/dat_68" BEL "AES_Composite_enc/dat_67" BEL
+        "AES_Composite_enc/dat_66" BEL "AES_Composite_enc/dat_65" BEL
+        "AES_Composite_enc/dat_64" BEL "AES_Composite_enc/dat_63" BEL
+        "AES_Composite_enc/dat_62" BEL "AES_Composite_enc/dat_61" BEL
+        "AES_Composite_enc/dat_60" BEL "AES_Composite_enc/dat_59" BEL
+        "AES_Composite_enc/dat_58" BEL "AES_Composite_enc/dat_57" BEL
+        "AES_Composite_enc/dat_56" BEL "AES_Composite_enc/dat_55" BEL
+        "AES_Composite_enc/dat_54" BEL "AES_Composite_enc/dat_53" BEL
+        "AES_Composite_enc/dat_52" BEL "AES_Composite_enc/dat_51" BEL
+        "AES_Composite_enc/dat_50" BEL "AES_Composite_enc/dat_49" BEL
+        "AES_Composite_enc/dat_48" BEL "AES_Composite_enc/dat_47" BEL
+        "AES_Composite_enc/dat_46" BEL "AES_Composite_enc/dat_45" BEL
+        "AES_Composite_enc/dat_44" BEL "AES_Composite_enc/dat_43" BEL
+        "AES_Composite_enc/dat_42" BEL "AES_Composite_enc/dat_41" BEL
+        "AES_Composite_enc/dat_40" BEL "AES_Composite_enc/dat_39" BEL
+        "AES_Composite_enc/dat_38" BEL "AES_Composite_enc/dat_37" BEL
+        "AES_Composite_enc/dat_36" BEL "AES_Composite_enc/dat_35" BEL
+        "AES_Composite_enc/dat_34" BEL "AES_Composite_enc/dat_33" BEL
+        "AES_Composite_enc/dat_32" BEL "AES_Composite_enc/dat_31" BEL
+        "AES_Composite_enc/dat_30" BEL "AES_Composite_enc/dat_29" BEL
+        "AES_Composite_enc/dat_28" BEL "AES_Composite_enc/dat_27" BEL
+        "AES_Composite_enc/dat_26" BEL "AES_Composite_enc/dat_25" BEL
+        "AES_Composite_enc/dat_24" BEL "AES_Composite_enc/dat_23" BEL
+        "AES_Composite_enc/dat_22" BEL "AES_Composite_enc/dat_21" BEL
+        "AES_Composite_enc/dat_20" BEL "AES_Composite_enc/dat_19" BEL
+        "AES_Composite_enc/dat_18" BEL "AES_Composite_enc/dat_17" BEL
+        "AES_Composite_enc/dat_16" BEL "AES_Composite_enc/dat_15" BEL
+        "AES_Composite_enc/dat_14" BEL "AES_Composite_enc/dat_13" BEL
+        "AES_Composite_enc/dat_12" BEL "AES_Composite_enc/dat_11" BEL
+        "AES_Composite_enc/dat_10" BEL "AES_Composite_enc/dat_9" BEL
+        "AES_Composite_enc/dat_8" BEL "AES_Composite_enc/dat_7" BEL
+        "AES_Composite_enc/dat_6" BEL "AES_Composite_enc/dat_5" BEL
+        "AES_Composite_enc/dat_4" BEL "AES_Composite_enc/dat_3" BEL
+        "AES_Composite_enc/dat_2" BEL "AES_Composite_enc/dat_1" BEL
+        "AES_Composite_enc/dat_0" BEL "AES_Composite_enc/Kvld" BEL
+        "ctr_ftdi_usb/state_FSM_FFd16" BEL "AES_Composite_enc/dat_3_1" BEL
+        "AES_Composite_enc/dat_3_2" BEL "AES_Composite_enc/dat_3_3" BEL
+        "AES_Composite_enc/dat_2_1" BEL "AES_Composite_enc/dat_2_2" BEL
+        "AES_Composite_enc/dat_2_3" BEL "AES_Composite_enc/dat_123_1" BEL
+        "AES_Composite_enc/dat_123_2" BEL "AES_Composite_enc/dat_123_3" BEL
+        "AES_Composite_enc/dat_13_1" BEL "AES_Composite_enc/dat_13_2" BEL
+        "AES_Composite_enc/dat_13_3" BEL "AES_Composite_enc/dat_0_1" BEL
+        "AES_Composite_enc/dat_0_2" BEL "AES_Composite_enc/dat_0_3" BEL
+        "AES_Composite_enc/dat_12_1" BEL "AES_Composite_enc/dat_12_2" BEL
+        "AES_Composite_enc/dat_12_3" BEL "AES_Composite_enc/dat_12_4" BEL
+        "AES_Composite_enc/dat_10_1" BEL "AES_Composite_enc/dat_10_2" BEL
+        "AES_Composite_enc/dat_10_3" BEL "AES_Composite_enc/dat_10_4" BEL
+        "AES_Composite_enc/dat_11_1" BEL "AES_Composite_enc/dat_11_2" BEL
+        "AES_Composite_enc/dat_11_3" BEL "AES_Composite_enc/dat_11_4" BEL
+        "AES_Composite_enc/dat_1_1" BEL "AES_Composite_enc/dat_1_2" BEL
+        "AES_Composite_enc/dat_1_3" BEL "AES_Composite_enc/dat_1_4" BEL
+        "AES_Composite_enc/dat_1_5" BEL "AES_Composite_enc/dat_19_1" BEL
+        "AES_Composite_enc/dat_19_2" BEL "AES_Composite_enc/dat_19_3" BEL
+        "AES_Composite_enc/dat_19_4" BEL "AES_Composite_enc/dat_19_5" BEL
+        "AES_Composite_enc/dat_16_1" BEL "AES_Composite_enc/dat_16_2" BEL
+        "AES_Composite_enc/dat_16_3" BEL "AES_Composite_enc/dat_16_4" BEL
+        "AES_Composite_enc/dat_16_5" BEL "AES_Composite_enc/dat_18_1" BEL
+        "AES_Composite_enc/dat_18_2" BEL "AES_Composite_enc/dat_18_3" BEL
+        "AES_Composite_enc/dat_18_4" BEL "AES_Composite_enc/dat_18_5" BEL
+        "AES_Composite_enc/dat_44_1" BEL "AES_Composite_enc/dat_43_1" BEL
+        "AES_Composite_enc/dat_43_2" BEL "AES_Composite_enc/dat_83_1" BEL
+        "AES_Composite_enc/dat_83_2" BEL "AES_Composite_enc/dat_82_1" BEL
+        "AES_Composite_enc/dat_82_2" BEL "AES_Composite_enc/dat_81_1" BEL
+        "AES_Composite_enc/dat_81_2" BEL "AES_Composite_enc/dat_42_1" BEL
+        "AES_Composite_enc/dat_42_2" BEL "AES_Composite_enc/dat_42_3" BEL
+        "AES_Composite_enc/dat_40_1" BEL "AES_Composite_enc/dat_40_2" BEL
+        "AES_Composite_enc/dat_40_3" BEL "AES_Composite_enc/dat_41_1" BEL
+        "AES_Composite_enc/dat_41_2" BEL "AES_Composite_enc/dat_41_3" BEL
+        "AES_Composite_enc/dat_80_1" BEL "AES_Composite_enc/dat_80_2" BEL
+        "AES_Composite_enc/dat_80_3" BEL "AES_Composite_enc/dat_72_1" BEL
+        "AES_Composite_enc/dat_72_2" BEL "AES_Composite_enc/dat_72_3" BEL
+        "AES_Composite_enc/dat_72_4" BEL "AES_Composite_enc/dat_72_5" BEL
+        "AES_Composite_enc/dat_75_1" BEL "AES_Composite_enc/dat_75_2" BEL
+        "AES_Composite_enc/dat_75_3" BEL "AES_Composite_enc/dat_75_4" BEL
+        "AES_Composite_enc/dat_75_5" BEL "AES_Composite_enc/dat_74_1" BEL
+        "AES_Composite_enc/dat_74_2" BEL "AES_Composite_enc/dat_74_3" BEL
+        "AES_Composite_enc/dat_74_4" BEL "AES_Composite_enc/dat_74_5" BEL
+        "AES_Composite_enc/dat_35_1" BEL "AES_Composite_enc/dat_35_2" BEL
+        "AES_Composite_enc/dat_35_3" BEL "AES_Composite_enc/dat_35_4" BEL
+        "AES_Composite_enc/dat_35_5" BEL "AES_Composite_enc/dat_32_1" BEL
+        "AES_Composite_enc/dat_32_2" BEL "AES_Composite_enc/dat_32_3" BEL
+        "AES_Composite_enc/dat_32_4" BEL "AES_Composite_enc/dat_32_5" BEL
+        "AES_Composite_enc/dat_32_6" BEL "AES_Composite_enc/dat_34_1" BEL
+        "AES_Composite_enc/dat_34_2" BEL "AES_Composite_enc/dat_34_3" BEL
+        "AES_Composite_enc/dat_34_4" BEL "AES_Composite_enc/dat_34_5" BEL
+        "AES_Composite_enc/dat_34_6" BEL "ctr_ftdi_usb/wd_7" BEL
+        "ctr_ftdi_usb/usb_wd_7" BEL "ctr_ftdi_usb/wd_6" BEL
+        "ctr_ftdi_usb/usb_wd_6" BEL "ctr_ftdi_usb/wd_5" BEL
+        "ctr_ftdi_usb/usb_wd_5" BEL "ctr_ftdi_usb/wd_4" BEL
+        "ctr_ftdi_usb/usb_wd_4" BEL "ctr_ftdi_usb/wd_3" BEL
+        "ctr_ftdi_usb/usb_wd_3" BEL "ctr_ftdi_usb/wd_2" BEL
+        "ctr_ftdi_usb/usb_wd_2" BEL "ctr_ftdi_usb/wd_1" BEL
+        "ctr_ftdi_usb/usb_wd_1" BEL "ctr_ftdi_usb/wd_0" BEL
+        "ctr_ftdi_usb/usb_wdt" BEL "ctr_ftdi_usb/usb_wd_0" BEL
+        "AES_Composite_enc/Mshreg_rnd_9" BEL "AES_Composite_enc/rnd_91" BEL
+        "AES_Composite_enc/rst_shift1" BEL "AES_Composite_enc/rst_shift2" BEL
+        "AES_Composite_enc/rst_shift3" BEL "AES_Composite_enc/rst_shift4" BEL
+        "AES_Composite_enc/rst_shift5" BEL "AES_Composite_enc/rst_shift6" BEL
+        "AES_Composite_enc/rst_shift7" BEL "AES_Composite_enc/rst_shift8" BEL
+        "AES_Composite_enc/rnd_9" BEL "mk_clkrst/u13.GCLKMUX" BEL
+        "mk_clkrst/u13";
+PIN mk_clkrst/u11_pins<3> = BEL "mk_clkrst/u11" PINNAME CLKIN;
+TIMEGRP clkin_grp = PIN "mk_clkrst/u11_pins<3>";
+TS_clkin = PERIOD TIMEGRP "clkin_grp" 24 MHz HIGH 50%;
+TS_mk_clkrst_clkdv_dcm = PERIOD TIMEGRP "mk_clkrst_clkdv_dcm" TS_clkin / 1.5
+        HIGH 50%;
+PIN osc_en_b_OBUF_pins<1> = BEL "osc_en_b_OBUF" PINNAME OUT;
+PIN led_9_OBUF_pins<1> = BEL "led_9_OBUF" PINNAME OUT;
+PIN led_8_OBUF_pins<1> = BEL "led_8_OBUF" PINNAME OUT;
+PIN led_7_OBUF_pins<1> = BEL "led_7_OBUF" PINNAME OUT;
+PIN led_6_OBUF_pins<1> = BEL "led_6_OBUF" PINNAME OUT;
+PIN led_5_OBUF_pins<1> = BEL "led_5_OBUF" PINNAME OUT;
+PIN led_4_OBUF_pins<1> = BEL "led_4_OBUF" PINNAME OUT;
+PIN led_3_OBUF_pins<1> = BEL "led_3_OBUF" PINNAME OUT;
+PIN led_2_OBUF_pins<1> = BEL "led_2_OBUF" PINNAME OUT;
+PIN led_1_OBUF_pins<1> = BEL "led_1_OBUF" PINNAME OUT;
+PIN led_0_OBUF_pins<1> = BEL "led_0_OBUF" PINNAME OUT;
+PIN rstnin_pins<0> = BEL "rstnin" PINNAME PAD;
+PIN "osc_en_b_OBUF_pins<1>" TIG;
+PIN "led_9_OBUF_pins<1>" TIG;
+PIN "led_8_OBUF_pins<1>" TIG;
+PIN "led_7_OBUF_pins<1>" TIG;
+PIN "led_6_OBUF_pins<1>" TIG;
+PIN "led_5_OBUF_pins<1>" TIG;
+PIN "led_4_OBUF_pins<1>" TIG;
+PIN "led_3_OBUF_pins<1>" TIG;
+PIN "led_2_OBUF_pins<1>" TIG;
+PIN "led_1_OBUF_pins<1>" TIG;
+PIN "led_0_OBUF_pins<1>" TIG;
+PIN "rstnin_pins<0>" TIG;
+SCHEMATIC END;
+

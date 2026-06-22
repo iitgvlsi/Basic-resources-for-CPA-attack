@@ -1,0 +1,259 @@
+# -------------------------------------------------------------------------
+# Pin assignment of Spartan-3A DSP 3400/1800 on ZUIHO
+# 
+# File name   : pin_zuiho_main_rev3.ucf
+# Version     : 3.0
+# Created     : APR/23/2013
+# Last update : MAY/30/2022
+# 
+# Copyright (C) 2013 AIST
+# 
+# By using this code, you agree to the following terms and conditions.
+# 
+# This code is copyrighted by AIST ("us").
+# 
+# Permission is hereby granted to copy, reproduce, redistribute or
+# otherwise use this code as long as: there is no monetary profit gained
+# specifically from the use or reproduction of this code, it is not sold,
+# rented, traded or otherwise marketed, and this copyright notice is
+# included prominently in any copy made.
+# 
+# We shall not be liable for any damages, including without limitation
+# direct, indirect, incidental, special or consequential damages arising
+# from the use of this code.
+# -------------------------------------------------------------------------
+
+#================================================Å@Timing constraint
+NET "clkin" TNM_NET = "clkin_grp";
+TIMESPEC "TS_clkin" = PERIOD : "clkin_grp" : 24 MHz HIGH 50.0%;
+
+#================================================ Pin assignment
+#------------------------------------------------ Clock, reset, LED, and SW.
+#################
+# CLOCK / RESET #
+#################
+NET "clkin"           LOC="C13"  | IOSTANDARD=LVCMOS33 ;
+NET "osc_en_b"          LOC="C10"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | TIG ;
+NET "rstnin"          LOC="M23"  | IOSTANDARD=LVCMOS33 | TIG ;
+
+#NET "clk_osc"        LOC="C13"  | IOSTANDARD=LVCMOS33 ; # IO_L28N_0/GCLK11
+#NET "clk_osc_inh_b"  LOC="C10"  | IOSTANDARD=LVCMOS33 ; # IO_L34P_0
+
+#NET "clk_ext_0_n"    LOC="AE14" | IOSTANDARD=LVCMOS33 ; # IO_L28N_2/GCLK3
+#NET "clk_ext_0_p"    LOC="AF14" | IOSTANDARD=LVCMOS33 ; # IO_L28P_2/GCLK2
+
+#NET "sys_rst_b"      LOC="M23"  | IOSTANDARD=LVCMOS33 ; # IO_L38N_1/A13
+
+##########
+# Switch #
+##########
+#NET "pushsw<0>"      LOC="AC26" | IOSTANDARD=LVCMOS33 ; # IO_L06P_1
+#NET "pushsw<1>"      LOC="AB26" | IOSTANDARD=LVCMOS33 ; # IO_L06N_1
+
+#NET "dipsw<0>"       LOC="AE26" | IOSTANDARD=LVCMOS33 ; # IO_L02P_1/LDC1
+#NET "dipsw<1>"       LOC="AD25" | IOSTANDARD=LVCMOS33 ; # IO_L02N_1/LDC0
+#NET "dipsw<2>"       LOC="AD26" | IOSTANDARD=LVCMOS33 ; # IO_L05P_1
+#NET "dipsw<3>"       LOC="AC25" | IOSTANDARD=LVCMOS33 ; # IO_L05N_1
+#NET "dipsw<4>"       LOC="AA25" | IOSTANDARD=LVCMOS33 ; # IO_L11N_1
+#NET "dipsw<5>"       LOC="AC24" | IOSTANDARD=LVCMOS33 ; # IO_L03N_1/A1
+#NET "dipsw<6>"       LOC="AC23" | IOSTANDARD=LVCMOS33 ; # IO_L03P_1/A0
+#NET "dipsw<7>"       LOC="AB24" | IOSTANDARD=LVCMOS33 ; # IO_L07N_1/VREF_1
+
+#######
+# LED #
+#######
+NET "led<0>"         LOC="AB23" | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | TIG ;
+NET "led<1>"         LOC="V25"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | TIG ;
+NET "led<2>"         LOC="AA23" | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | TIG ;
+NET "led<3>"         LOC="AA24" | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | TIG ;
+NET "led<4>"         LOC="W23"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | TIG ;
+NET "led<5>"         LOC="V24"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | TIG ;
+NET "led<6>"         LOC="T24"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | TIG ;
+NET "led<7>"         LOC="R26"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | TIG ;
+NET "led<8>"         LOC="R25"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | TIG ;
+NET "led<9>"         LOC="V23"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | TIG ;
+
+#NET "led<0>"         LOC="AB23" | IOSTANDARD=LVCMOS33 ; # IO_L07P_1
+#NET "led<1>"         LOC="V25"  | IOSTANDARD=LVCMOS33 ; # IO_L19N_1
+#NET "led<2>"         LOC="AA23" | IOSTANDARD=LVCMOS33 ; # IO_L09N_1
+#NET "led<3>"         LOC="AA24" | IOSTANDARD=LVCMOS33 ; # IO_L11P_1
+#NET "led<4>"         LOC="W23"  | IOSTANDARD=LVCMOS33 ; # IO_L18P_1
+#NET "led<5>"         LOC="V24"  | IOSTANDARD=LVCMOS33 ; # IO_L19P_1
+#NET "led<6>"         LOC="T24"  | IOSTANDARD=LVCMOS33 ; # IO_L26N_1/A5
+#NET "led<7>"         LOC="R26"  | IOSTANDARD=LVCMOS33 ; # IO_L29N_1/A9
+#NET "led<8>"         LOC="R25"  | IOSTANDARD=LVCMOS33 ; # IO_L29P_1/A8
+#NET "led<9>"         LOC="V23"  | IOSTANDARD=LVCMOS33 ; # IO_L21P_1
+
+########
+# GPIO #
+########
+#NET "mezzanine<0>"   LOC="L24"  | IOSTANDARD=LVCMOS33 ; # IO_L38P_1/A12
+#NET "mezzanine<1>"   LOC="K26"  | IOSTANDARD=LVCMOS33 ; # IO_L41N_1
+#NET "mezzanine<2>"   LOC="M22"  | IOSTANDARD=LVCMOS33 ; # IO_L45N_1
+#NET "mezzanine<3>"   LOC="K22"  | IOSTANDARD=LVCMOS33 ; # IO_L46N_1
+#NET "mezzanine<4>"   LOC="K23"  | IOSTANDARD=LVCMOS33 ; # IO_L46P_1
+#NET "mezzanine<5>"   LOC="J22"  | IOSTANDARD=LVCMOS33 ; # IO_L49N_1
+#NET "mezzanine<6>"   LOC="J23"  | IOSTANDARD=LVCMOS33 ; # IO_L49P_1
+#NET "mezzanine<7>"   LOC="F23"  | IOSTANDARD=LVCMOS33 ; # IO_L56N_1
+#NET "mezzanine<8>"   LOC="K25"  | IOSTANDARD=LVCMOS33 ; # IO_L41P_1
+#NET "mezzanine<9>"   LOC="J26"  | IOSTANDARD=LVCMOS33 ; # IO_L43P_1/A18
+#NET "mezzanine<10>"  LOC="J25"  | IOSTANDARD=LVCMOS33 ; # IO_L43N_1/A19
+#NET "mezzanine<11>"  LOC="F25"  | IOSTANDARD=LVCMOS33 ; # IO_L54P_1
+#NET "mezzanine<12>"  LOC="E26"  | IOSTANDARD=LVCMOS33 ; # IO_L60P_1
+#NET "mezzanine<13>"  LOC="F24"  | IOSTANDARD=LVCMOS33 ; # IO_L54N_1
+#NET "mezzanine<14>"  LOC="D26"  | IOSTANDARD=LVCMOS33 ; # IO_L60N_1
+#NET "mezzanine<15>"  LOC="E24"  | IOSTANDARD=LVCMOS33 ; # IO_L56P_1
+#NET "mezzanine<16>"  LOC="D25"  | IOSTANDARD=LVCMOS33 ; # IO_L61P_1
+#NET "mezzanine<17>"  LOC="D24"  | IOSTANDARD=LVCMOS33 ; # IO_L61N_1
+#NET "mezzanine<18>"  LOC="C26"  | IOSTANDARD=LVCMOS33 ; # IO_L63P_1/A22
+#NET "mezzanine<19>"  LOC="C25"  | IOSTANDARD=LVCMOS33 ; # IO_L63N_1/A23
+#NET "mezzanine<20>"  LOC="C23"  | IOSTANDARD=LVCMOS33 ; # IO_L06N_0
+#NET "mezzanine<21>"  LOC="C22"  | IOSTANDARD=LVCMOS33 ; # IO_L05N_0
+#NET "mezzanine<22>"  LOC="D20"  | IOSTANDARD=LVCMOS33 ; # IO_L11P_0
+#NET "mezzanine<23>"  LOC="A22"  | IOSTANDARD=LVCMOS33 ; # IO_L07N_0
+#NET "mezzanine<24>"  LOC="C20"  | IOSTANDARD=LVCMOS33 ; # IO_L11N_0
+#NET "mezzanine<25>"  LOC="B20"  | IOSTANDARD=LVCMOS33 ; # IO_L14P_0/VREF_0
+#NET "mezzanine<26>"  LOC="A20"  | IOSTANDARD=LVCMOS33 ; # IO_L14N_0
+#NET "mezzanine<27>"  LOC="B19"  | IOSTANDARD=LVCMOS33 ; # IO_L15P_0
+#NET "mezzanine<28>"  LOC="A19"  | IOSTANDARD=LVCMOS33 ; # IO_L15N_0
+#NET "mezzanine<29>"  LOC="B18"  | IOSTANDARD=LVCMOS33 ; # IO_L18P_0
+#NET "mezzanine<30>"  LOC="A18"  | IOSTANDARD=LVCMOS33 ; # IO_L18N_0
+#NET "mezzanine<31>"  LOC="B17"  | IOSTANDARD=LVCMOS33 ; # IO_L19N_0
+#NET "mezzanine<32>"  LOC="C16"  | IOSTANDARD=LVCMOS33 ; # IO_L21N_0
+#NET "mezzanine<33>"  LOC="A15"  | IOSTANDARD=LVCMOS33 ; # IO_L23N_0
+#NET "mezzanine<34>"  LOC="B15"  | IOSTANDARD=LVCMOS33 ; # IO_L23P_0
+#NET "mezzanine<35>"  LOC="A14"  | IOSTANDARD=LVCMOS33 ; # IO_L26N_0/GCLK7
+#NET "mezzanine<36>"  LOC="B14"  | IOSTANDARD=LVCMOS33 ; # IO_L26P_0/GCLK6
+#NET "mezzanine<37>"  LOC="B12"  | IOSTANDARD=LVCMOS33 ; # IO_L29N_0
+#NET "mezzanine<38>"  LOC="A12"  | IOSTANDARD=LVCMOS33 ; # IO_L29P_0
+#NET "mezzanine<39>"  LOC="B10"  | IOSTANDARD=LVCMOS33 ; # IO_L33N_0
+#NET "mezzanine<40>"  LOC="A10"  | IOSTANDARD=LVCMOS33 ; # IO_L33P_0
+#NET "mezzanine<41>"  LOC="B9"   | IOSTANDARD=LVCMOS33 ; # IO_L36N_0
+#NET "mezzanine<42>"  LOC="A9"   | IOSTANDARD=LVCMOS33 ; # IO_L36P_0
+#NET "mezzanine<43>"  LOC="B8"   | IOSTANDARD=LVCMOS33 ; # IO_L38N_0
+#NET "mezzanine<44>"  LOC="A8"   | IOSTANDARD=LVCMOS33 ; # IO_L38P_0
+#NET "mezzanine<45>"  LOC="C8"   | IOSTANDARD=LVCMOS33 ; # IO_L40P_0
+#NET "mezzanine<46>"  LOC="B7"   | IOSTANDARD=LVCMOS33 ; # IO_L42P_0
+#NET "mezzanine<47>"  LOC="B6"   | IOSTANDARD=LVCMOS33 ; # IO_L41P_0
+#NET "mezzanine<48>"  LOC="C6"   | IOSTANDARD=LVCMOS33 ; # IO_L41N_0
+#NET "mezzanine<49>"  LOC="A4"   | IOSTANDARD=LVCMOS33 ; # IO_L45P_0
+#NET "mezzanine<50>"  LOC="B4"   | IOSTANDARD=LVCMOS33 ; # IO_L45N_0
+#NET "mezzanine<51>"  LOC="A3"   | IOSTANDARD=LVCMOS33 ; # IO_L51P_0
+#NET "mezzanine<52>"  LOC="B3"   | IOSTANDARD=LVCMOS33 ; # IO_L51N_0
+#NET "mezzanine<53>"  LOC="B2"   | IOSTANDARD=LVCMOS33 ; # IO_L02P_3
+#NET "mezzanine<54>"  LOC="B1"   | IOSTANDARD=LVCMOS33 ; # IO_L02N_3
+#NET "mezzanine<55>"  LOC="E1"   | IOSTANDARD=LVCMOS33 ; # IO_L11P_3
+#NET "mezzanine<56>"  LOC="F4"   | IOSTANDARD=LVCMOS33 ; # IO_L07N_3
+#NET "mezzanine<57>"  LOC="F2"   | IOSTANDARD=LVCMOS33 ; # IO_L11N_3
+#NET "mezzanine<58>"  LOC="F3"   | IOSTANDARD=LVCMOS33 ; # IO_L14N_3
+#NET "mezzanine<59>"  LOC="G3"   | IOSTANDARD=LVCMOS33 ; # IO_L14P_3
+#NET "mezzanine<60>"  LOC="H2"   | IOSTANDARD=LVCMOS33 ; # IO_L17P_3
+#NET "mezzanine<61>"  LOC="H1"   | IOSTANDARD=LVCMOS33 ; # IO_L17N_3
+#NET "mezzanine<62>"  LOC="J4"   | IOSTANDARD=LVCMOS33 ; # IO_L19N_3
+#NET "mezzanine<63>"  LOC="K2"   | IOSTANDARD=LVCMOS33 ; # IO_L23N_3
+
+#NET "gpio_startn" LOC="AF14"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "gpio_startn" LOC="M25"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "gpio_endn"   LOC="P23"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "gpio_exec"   LOC="N24"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+
+#NET "header<0>"      LOC="M25"  | IOSTANDARD=LVCMOS33 ; # IO_L35N_1/A11
+#NET "header<1>"      LOC="P23"  | IOSTANDARD=LVCMOS33 ; # IO_L33P_1/RHCLK4
+#NET "header<2>"      LOC="N24"  | IOSTANDARD=LVCMOS33 ; # IO_L33N_1/RHCLK5
+#NET "header<3>"      LOC="M26"  | IOSTANDARD=LVCMOS33 ; # IO_L35P_1/A10
+
+#------------------------------------------------ Local bus
+#############
+# Local bus #
+#############
+#NET "mc_ic_d<0>"     LOC="AE3"  | IOSTANDARD=LVCMOS33 ; # IO_L06P_2
+#NET "mc_ic_d<1>"     LOC="AF3"  | IOSTANDARD=LVCMOS33 ; # IO_L06N_2
+#NET "mc_ic_d<2>"     LOC="AE4"  | IOSTANDARD=LVCMOS33 ; # IO_L07P_2
+#NET "mc_ic_d<3>"     LOC="AF4"  | IOSTANDARD=LVCMOS33 ; # IO_L07N_2
+#NET "mc_ic_d<4>"     LOC="AF5"  | IOSTANDARD=LVCMOS33 ; # IO_L10P_2
+#NET "mc_ic_d<5>"     LOC="AC11" | IOSTANDARD=LVCMOS33 ; # IO_L23N_2
+#NET "mc_ic_d<6>"     LOC="AD11" | IOSTANDARD=LVCMOS33 ; # IO_L23P_2
+#NET "mc_ic_d<7>"     LOC="AF8"  | IOSTANDARD=LVCMOS33 ; # IO_L18N_2
+#NET "mc_ic_d<8>"     LOC="AE13" | IOSTANDARD=LVCMOS33 ; # IO_L26N_2/GCLK15
+#NET "mc_ic_d<9>"     LOC="AF13" | IOSTANDARD=LVCMOS33 ; # IO_L26P_2/GCLK14
+#NET "mc_ic_d<10>"    LOC="AE19" | IOSTANDARD=LVCMOS33 ; # IO_L37N_2
+#NET "mc_ic_d<11>"    LOC="AF19" | IOSTANDARD=LVCMOS33 ; # IO_L37P_2
+#NET "mc_ic_d<12>"    LOC="AC15" | IOSTANDARD=LVCMOS33 ; # IO_L30P_2
+#NET "mc_ic_d<13>"    LOC="AD15" | IOSTANDARD=LVCMOS33 ; # IO_L32P_2/AWAKE
+#NET "mc_ic_d<14>"    LOC="AE20" | IOSTANDARD=LVCMOS33 ; # IO_L39N_2
+#NET "mc_ic_d<15>"    LOC="AF20" | IOSTANDARD=LVCMOS33 ; # IO_L39P_2
+#NET "mc_ic_d<16>"    LOC="AE21" | IOSTANDARD=LVCMOS33 ; # IO_L44P_2
+#NET "mc_ic_d<17>"    LOC="AF23" | IOSTANDARD=LVCMOS33 ; # IO_L48P_2
+#NET "mc_ic_d<18>"    LOC="AD19" | IOSTANDARD=LVCMOS33 ; # IO_L40P_2
+#NET "mc_ic_d<19>"    LOC="AC19" | IOSTANDARD=LVCMOS33 ; # IO_L40N_2
+#NET "mc_ic_d<20>"    LOC="AC21" | IOSTANDARD=LVCMOS33 ; # IO_L45N_2
+#NET "mc_ic_d<21>"    LOC="AD21" | IOSTANDARD=LVCMOS33 ; # IO_L44N_2
+
+#------------------------------------------------ USB
+###############
+# USB FT2232H #
+###############
+NET "usb_rxfn"  LOC="AB1"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_txen"  LOC="AC1"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_rdn"   LOC="AC2"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_wr"    LOC="AD1"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_siwua" LOC="AD2"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_d<0>"  LOC="G4"   | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_d<1>"  LOC="K5"   | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_d<2>"  LOC="K4"   | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_d<3>"  LOC="K3"   | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_d<4>"  LOC="L3"   | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_d<5>"  LOC="Y2"   | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_d<6>"  LOC="Y1"   | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+NET "usb_d<7>"  LOC="AA2"  | IOSTANDARD=LVCMOS33 | SLEW="QUIETIO" | DRIVE=2 ;
+
+#NET "ftdi_acbus<0>"  LOC="AB1"  | IOSTANDARD=LVCMOS33 ; # IO_L60P_3
+#NET "ftdi_acbus<1>"  LOC="AC1"  | IOSTANDARD=LVCMOS33 ; # IO_L60N_3
+#NET "ftdi_acbus<2>"  LOC="AC2"  | IOSTANDARD=LVCMOS33 ; # IO_L64P_3
+#NET "ftdi_acbus<3>"  LOC="AD1"  | IOSTANDARD=LVCMOS33 ; # IO_L65P_3
+#NET "ftdi_acbus<4>"  LOC="AD2"  | IOSTANDARD=LVCMOS33 ; # IO_L65N_3
+#NET "ftdi_acbus<5>"  LOC="P1"   | IOSTANDARD=LVCMOS33 ; # IO_L33P_3/LHCLK2
+#NET "ftdi_acbus<6>"  LOC="W4"   | IOSTANDARD=LVCMOS33 ; # IO_L52N_3
+#NET "ftdi_acbus<7>"  LOC="W3"   | IOSTANDARD=LVCMOS33 ; # IO_L52P_3
+#NET "ftdi_adbus<0>"  LOC="G4"   | IOSTANDARD=LVCMOS33 ; # IO_L09N_3
+#NET "ftdi_adbus<1>"  LOC="K5"   | IOSTANDARD=LVCMOS33 ; # IO_L22P_3
+#NET "ftdi_adbus<2>"  LOC="K4"   | IOSTANDARD=LVCMOS33 ; # IO_L22N_3
+#NET "ftdi_adbus<3>"  LOC="K3"   | IOSTANDARD=LVCMOS33 ; # IO_L23P_3
+#NET "ftdi_adbus<4>"  LOC="L3"   | IOSTANDARD=LVCMOS33 ; # IO_L25N_3
+#NET "ftdi_adbus<5>"  LOC="Y2"   | IOSTANDARD=LVCMOS33 ; # IO_L53N_3
+#NET "ftdi_adbus<6>"  LOC="Y1"   | IOSTANDARD=LVCMOS33 ; # IO_L53P_3
+#NET "ftdi_adbus<7>"  LOC="AA2"  | IOSTANDARD=LVCMOS33 ; # IO_L55P_3
+
+#------------------------------------------------ Configuration
+#################
+# Configuration #
+#################
+#NET "m_conf_cclk"    LOC="AE24" | IOSTANDARD=LVCMOS33 ; # IO_L52N_2/CCLK
+
+#NET "m_conf_cso_b"   LOC="AA7"  | IOSTANDARD=LVCMOS33 ; # IO_L02N_2/CSO_B
+#NET "m_conf_d<0>"    LOC="AF24" | IOSTANDARD=LVCMOS33 ; # IO_L52P_2/D0/DIN/MISO
+#NET "m_conf_d<1>"    LOC="AE18" | IOSTANDARD=LVCMOS33 ; # IO_L36N_2/D1
+#NET "m_conf_d<2>"    LOC="AF18" | IOSTANDARD=LVCMOS33 ; # IO_L36P_2/D2
+#NET "m_conf_d<3>"    LOC="Y15"  | IOSTANDARD=LVCMOS33 ; # IO_L34N_2/D3
+#NET "m_conf_d<4>"    LOC="AE12" | IOSTANDARD=LVCMOS33 ; # IO_L24N_2/D4
+#NET "m_conf_d<5>"    LOC="AF12" | IOSTANDARD=LVCMOS33 ; # IO_L24P_2/D5
+#NET "m_conf_d<6>"    LOC="AF10" | IOSTANDARD=LVCMOS33 ; # IO_L22N_2/D6
+#NET "m_conf_d<7>"    LOC="AE10" | IOSTANDARD=LVCMOS33 ; # IO_L22P_2/D7
+#NET "m_conf_dout"    LOC="AE15" | IOSTANDARD=LVCMOS33 ; # IO_L32N_2/DOUT
+#NET "m_conf_init_b"  LOC="AA15" | IOSTANDARD=LVCMOS33 ; # IO_L34P_2/INIT_B
+#NET "m_conf_m<0>"    LOC="AD4"  | IOSTANDARD=LVCMOS33 ; # IO_L01N_2/M0
+#NET "m_conf_m<1>"    LOC="AC4"  | IOSTANDARD=LVCMOS33 ; # IO_L01P_2/M1
+#NET "m_conf_m<2>"    LOC="Y7"   | IOSTANDARD=LVCMOS33 ; # IO_L02P_2/M2
+#NET "m_conf_mosi_csi_b" LOC="AB15" | IOSTANDARD=LVCMOS33 ; # IO_L30N_2/MOSI/CSI_B
+#NET "m_conf_pudc_b"  LOC="G8"   | IOSTANDARD=LVCMOS33 ; # IO_L52N_0/PUDC_B
+#NET "m_conf_rdwr_b"  LOC="Y12"  | IOSTANDARD=LVCMOS33 ; # IO_L17P_2/RDWR_B
+#NET "m_conf_vs0<0>"  LOC="AF9"  | IOSTANDARD=LVCMOS33 ; # IO_L19N_2/VS0
+#NET "m_conf_vs0<1>"  LOC="AE9"  | IOSTANDARD=LVCMOS33 ; # IO_L19P_2/VS1
+#NET "m_conf_vs0<2>"  LOC="AA12" | IOSTANDARD=LVCMOS33 ; # IO_L17N_2/VS2
+
+#------------------------------------------------ Other
+#########
+# OTHER #
+#########
+#NET "rsvio_n<0>"     LOC="P25"  | IOSTANDARD=LVCMOS33 ; # IO_L31N_1/TRDY1/RHCLK3
+#NET "rsvio_p<0>"     LOC="P26"  | IOSTANDARD=LVCMOS33 ; # IO_L31P_1/RHCLK2
