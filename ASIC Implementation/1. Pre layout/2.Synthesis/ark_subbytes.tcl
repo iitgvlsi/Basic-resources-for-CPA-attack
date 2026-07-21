@@ -7,10 +7,10 @@
 	set tech_lib   uk65lscllmvbbr_108c125_wc
 
 	set synthetic_library dw_foundation.sldb
-  set target_library "/home/surya_srikar/UMC65/UMK65LSCLLMVBBR_B03_TAPEOUTKIT/synopsys/uk65lscllmvbbr_108c125_wc.db"
+  set target_library "uk65lscllmvbbr_108c125_wc.db"
   set link_library "* $target_library $synthetic_library"
 
-	foreach ff [ls /home/surya_srikar/sanjana/aes_12_sasebo/*.v] {
+	foreach ff [ls ../RTL\ Code/*.v] {
 		analyze -library WORK -format verilog $ff
 	}
 
