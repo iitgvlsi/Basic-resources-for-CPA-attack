@@ -1,8 +1,4 @@
-%Start of "Working perfectly for Surya's design with step-size 1ns using the HD power 
-%model while attacking the last round"
-
 function MTD_Finalinv(MAX_TRACES,BYTE,cores,delay)
-%KEY = [0xF6 0x4E 0x80 0x0B 0xD1 0xF9 0xF0 0xA5 0x23 0xD5 0x4C 0x24 0xAD 0x02 0x97 0xFD];
 
 KEY = [0xD0 0x14 0xF9 0xA8 0xC9 0xEE 0x25 0x89 0xE1 0x3F 0x0C 0xC8 0xB6 0x63 0x0C 0xA6];
 key_mtd=zeros(256,MAX_TRACES); %for storing all the combination of a single key byte.
@@ -32,11 +28,10 @@ segmentLength = 750;          % 18 different length of the power trace
 columns = 16;
 rows = MAX_TRACES;
 
- data = table2array(readtable('aes_ecb.csv','Format','%f%f'));%<<<<<<<<<<<<<<<<<<<!!));%<<<<<<<<<<<<<<<<<<<!!
+ data = table2array(readtable('aes_ecb.csv','Format','%f%f'));
  y0 = data(:,2); %<<<<
  k=1; 
  
- %traces = zeros(MAX_TRACES,segmentLength);
  for i=1:MAX_TRACES                                    
         for j = 1 :segmentLength
             traces(i,j) = y0(k);
@@ -44,7 +39,6 @@ rows = MAX_TRACES;
         end
 end
 
-%ciphertext = myin('CipherText_1000000.txt', columns, rows);
 ciphertext = myin('ecb_ct.txt', columns, rows);
 keyCandidateStart = 0;
 keyCandidateStop = 255;
@@ -52,7 +46,7 @@ result = zeros(1, 16);
 tic
 figure;
 
-parfor (i=16:MAX_TRACES,cores)  %i=16:numberofplaintexts
+parfor (i=16:MAX_TRACES,cores)  
      [~,key_mtd(:,i)]=cpa_attack_GitHub_for_MTDFinal_Inverse(i,BYTE, byte_Hamming_weight, INVSBOX, segmentLength, traces, ciphertext, keyCandidateStart, keyCandidateStop, result);
      %disp(i)
      disp(['BYTE-',num2str(BYTE),' Trace-',num2str(i)]);
@@ -84,6 +78,3 @@ pause(delay);
 file_name=['CPA_MTD_ECB_BYTE-',num2str(BYTE),'_Traces-',num2str(MAX_TRACES),'.fig'];
 savefig(file_name);
 end
-
-%End of "Working perfectly for Surya's design with step-size 1ns using the HD power 
-%model while attacking the last round"
