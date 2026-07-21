@@ -30,14 +30,16 @@ link
  ##              Read swtiching activity file               ##
  #############################################################
 
+## aes_unprotected.vcd is a file generated using VCS (step 4)
 read_sdc syn_constraints.sdc 
-read_vcd aes_unprotected.vcd -strip_path testbench/g1       ## aes_unprotected.vcd is a file generated using VCS (step 4)
+read_vcd aes_unprotected.vcd -strip_path testbench/g1 
 
  #############################################################
  ##                  Analyze power		                        ##
  #############################################################
-
-set_power_analysis_options -waveform_format fsdb -waveform_output aes_unprotected_power.fsdb ## aes_unprotected_power.fsdb is the output file of this step
+ 
+## aes_unprotected_power.fsdb is the output file of the following step
+set_power_analysis_options -waveform_format fsdb -waveform_output aes_unprotected_power.fsdb 
 update_power
 
 
