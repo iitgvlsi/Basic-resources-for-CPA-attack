@@ -1,4 +1,4 @@
-# AES Composite Encryption — Post-Layout Implementation Flow (Innovus)
+# AES Composite Encryption — Layout Implementation Flow (Innovus)
 
 This section covers the physical implementation (place-and-route) of the AES Composite Encryption design using Cadence Innovus. Following all steps in order produces the final `aes.spef` parasitic extraction file used for sign-off power analysis.
 
