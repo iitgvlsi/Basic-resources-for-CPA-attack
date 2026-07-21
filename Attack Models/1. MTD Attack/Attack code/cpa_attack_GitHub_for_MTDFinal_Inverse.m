@@ -1,10 +1,7 @@
 function [CC, HC]=cpa_attack_GitHub_for_MTDFinal_Inverse(numberOfTraces,BYTE, byte_Hamming_weight, INVSBOX ,segmentLength, traces, ciphertext, keyCandidateStart, keyCandidateStop, result)
 
-
 K = 0:255;
 
-
-%Hridya's code
 if (BYTE == 2) || (BYTE == 6) || (BYTE == 10)
     BYTEnew = BYTE + 4;
 elseif (BYTE == 3) || (BYTE == 7)
@@ -30,7 +27,6 @@ powerHypothesis = zeros(numberOfTraces, 256);
    powerHypothesis(N, K + 1) = Hd;
    
  end
-
  
 CC = mycorr(powerHypothesis(1:numberOfTraces,:), traces(1:numberOfTraces,:));
 CC = abs(CC);
@@ -50,6 +46,3 @@ HighestCoef = 0;
     
 fprintf ( "Byte %d of the key is 0x%2.2X \n ", BYTE , result(BYTE) );
 end
-
-
-
