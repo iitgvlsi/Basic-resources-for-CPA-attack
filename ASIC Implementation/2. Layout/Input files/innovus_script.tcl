@@ -4,9 +4,9 @@ set script_root /data/student/project/
 set rpt_dir /data/student/project/reports/
 set mmmcfilename $script_root/mmmc_setup.view
 read_mmmc $mmmcfilename
-read_physical -lef { /data/student/project/lef\ files/uk65lscllmvbbr_1.lef \
-                     /data/student/project/lef\ files/uk65lscllmvbbr_2.lef \
-                     /data/student/project/lef\ files/uk65lscllmvbbr_7m2t0f.tch }
+read_physical -lef { ./lef\ files/uk65lscllmvbbr_1.lef \
+                     ./lef\ files/uk65lscllmvbbr_2.lef \
+                     ./lef\ files/uk65lscllmvbbr_7m2t0f.tch }
 read_netlist $topverilogfile
 init_design
 floorPlan -SITE CORE -d 1358 1358 70 70 70 70
