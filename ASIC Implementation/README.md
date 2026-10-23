@@ -1,6 +1,6 @@
 # AES Encryption — Synopsys Design Flow
 
-This repository contains the RTL design, testbench, and supporting scripts for the AES Composite Encryption block. The design flow covers synthesis, simulation, and power analysis using Synopsys EDA tools.
+This repository contains the RTL design, testbench, and supporting scripts for the AES Encryption block. The design flow covers synthesis, simulation, and power analysis using Synopsys EDA tools.
 
 ---
 
@@ -59,12 +59,12 @@ source ark_subbytes.tcl
 ```
 
 > **Input files (in `Synthesis/`):**
-> - `AES_Composite_enc.v` — RTL design
+> - `aes_12_comp_masoleh.v` — RTL design
 > - `ark_subbytes.tcl` — Synthesis TCL script
 
 **Outputs generated:**
 - Area, power, and timing reports
-- `AES_Composite_enc.dc.v` — Gate-level synthesized netlist
+- `aes_12_comp_masoleh.dc.v` — Gate-level synthesized netlist
 - `syn_constraints.sdc` — Synopsys Design Constraints file (post-synthesis)
 
 ---
@@ -81,11 +81,11 @@ formality
 **Verification flow inside the GUI/shell:**
 
 1. **Reference design** — Read the original RTL source, then set the top design:
-   - Read: `RTL Code/AES_Composite_enc.v`
+   - Read: `RTL Code/aes_12_comp_masoleh.v`
    - Set top design
 
 2. **Implementation design** — Read the synthesized netlist and the standard cell DB library, then set the top design:
-   - Read netlist: `AES_Composite_enc.dc.v` (output from Step 1)
+   - Read netlist: `aes_12_comp_masoleh.dc.v` (output from Step 1)
    - Read DB libraries (standard cell library): `uk65lscllmvbbr_108c125_wc.lib`
    - Set top design
 
@@ -105,11 +105,11 @@ VCS compiles and simulates the synthesized netlist together with the testbench a
 ```bash
 vlogan -full64 \
   VCS/uk65lscllmvbbr_sdf21.v \
-  VCS/AES_Composite_enc.v \
+  VCS/aes_12_comp_masoleh.v \
   VCS/testbench.v
 ```
 
-> `AES_Composite_enc.v` here represents the post-synthesis netlist (`aes_unprotected.dc.v`) produced in Step 1. Rename or replace accordingly.
+> `aes_12_comp_masoleh.v` here represents the post-synthesis netlist produced in Step 1. Rename or replace accordingly.
 
 **Elaborate and link the testbench:**
 ```bash
@@ -123,7 +123,7 @@ vcs -full64 testbench
 
 > **Input files (in `VCS/`):**
 > - `uk65lscllmvbbr_sdf21.v` — Standard cell library SDF model
-> - `AES_Composite_enc.v` — Synthesized netlist
+> - `aes_12_comp_masoleh.dc.v` — Synthesized netlist
 > - `testbench.v` — Simulation testbench
 
 **Output:**

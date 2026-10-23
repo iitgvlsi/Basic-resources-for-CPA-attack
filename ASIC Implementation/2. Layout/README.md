@@ -1,6 +1,6 @@
-# AES Composite Encryption — Layout Implementation Flow (Innovus)
+# AES Encryption — Layout Implementation Flow (Innovus)
 
-This section covers the physical implementation (place-and-route) of the AES Composite Encryption design using Cadence Innovus. Following all steps in order produces the final `aes.spef` parasitic extraction file used for sign-off power analysis.
+This section covers the physical implementation (place-and-route) of the AES Encryption design using Cadence Innovus. Following all steps in order produces the final `aes.spef` parasitic extraction file used for sign-off power analysis.
 
 ---
 
@@ -13,13 +13,13 @@ This section covers the physical implementation (place-and-route) of the AES Com
 │   │   ├── uk65lscllmvbbr_1.lef          # Standard cell LEF (layer 1)
 │   │   ├── uk65lscllmvbbr_2.lef          # Standard cell LEF (layer 2)
 │   │   └── uk65lscllmvbbr_7m2t0f.tch    # Technology file (layer stack)
-│   ├── AES_Composite_enc.v               # Gate-level synthesized netlist
+│   ├── aes_12_comp_masoleh.dc.v               # Gate-level synthesized netlist
 │   ├── innovus_script.tcl                # Main Innovus implementation script
 │   ├── mmmc_setup.view                   # Multi-mode multi-corner setup
 │   ├── syn_constraints.sdc               # Timing constraints
 │   └── uk65lscllmvbbr_108c125_wc.lib    # Worst-case timing/power library
 └── Output files/
-    ├── aes_post_layout.v                 # Post-layout gate-level netlist
+    ├── aes_12_comp_masoleh.innovus.v     # Post-layout gate-level netlist
     └── aes.spef                          # Parasitic extraction output (final deliverable)
 ```
 
@@ -59,7 +59,7 @@ The script sets the process node and path variables, then immediately uses them 
 
 ```tcl
 setDesignMode -process 65
-set topverilogfile /data/student/project/AES_Composite_enc.v
+set topverilogfile /data/student/project/aes_12_comp_masoleh.dc.v
 set script_root /data/student/project/
 set rpt_dir /data/student/project/reports/
 set mmmcfilename $script_root/mmmc_setup.view
@@ -74,7 +74,7 @@ init_design
 
 | Variable | Points to |
 |---|---|
-| `topverilogfile` | `Input files/AES_Composite_enc.v` |
+| `topverilogfile` | `Input files/aes_12_comp_masoleh.dc.v` |
 | `script_root` | Project root directory |
 | `rpt_dir` | Reports output directory |
 | `mmmcfilename` | `Input files/mmmc_setup.view` |
@@ -222,7 +222,7 @@ addFiller -cell FILLER1HD -prefix FILLER -doDRC
 Once the layout is DRC-clean and physically complete, the post-layout gate-level netlist is written out:
 
 ```tcl
-saveNetlist aes_post_layout.v
+saveNetlist aes_12_comp_masoleh.innovus.v
 ```
 
 This captures the final netlist including all cells added or modified during physical implementation — filler cells, clock buffers inserted by CTS, tie cells, etc. This netlist should be used for any post-layout simulation or formal verification in place of the original synthesized netlist.
@@ -246,7 +246,7 @@ The output `aes.spef` captures all resistance and capacitance values of the rout
 
 | Step | Action | Key Input Files | Output |
 |------|--------|----------------|--------|
-| 2 | Design init & MMMC setup | `AES_Composite_enc.v`, `mmmc_setup.view`, `syn_constraints.sdc`, LEF files, `uk65lscllmvbbr_7m2t0f.tch` | Loaded design |
+| 2 | Design init & MMMC setup | `aes_12_comp_masoleh.dc.v`, `mmmc_setup.view`, `syn_constraints.sdc`, LEF files, `uk65lscllmvbbr_7m2t0f.tch` | Loaded design |
 | 3 | Floorplan & power connections | — | Core floorplan |
 | 4 | Power rings | — | ME1–ME7 rings |
 | 5 | Power stripes | — | ME6/ME7 mesh |
@@ -256,7 +256,7 @@ The output `aes.spef` captures all resistance and capacitance values of the rout
 | 9 | Timing/congestion check | `uk65lscllmvbbr_108c125_wc.lib` | Reports in `reports/` |
 | 10 | Detailed routing | — | Routed layout |
 | 11 | Post-route optimisation + fillers | — | DRC-clean layout |
-| 12 | Save post-layout netlist | — | `aes_post_layout.v` |
+| 12 | Save post-layout netlist | — | `aes_12_comp_masoleh.innovus.v` |
 | 13 | Parasitic extraction | Routed layout | **`aes.spef`** |
 
 ---
@@ -271,5 +271,5 @@ The output `aes.spef` captures all resistance and capacitance values of the rout
 ## Notes
 
 - The `mmmc_setup.view` file must correctly reference `syn_constraints.sdc` and `uk65lscllmvbbr_108c125_wc.lib` with paths matching your local installation.
-- `aes_post_layout.v` should replace `AES_Composite_enc.v` in post-layout simulation and generate .vcd file.
+- `aes_12_comp_masoleh.innovus.v` should replace `aes_12_comp_masoleh.dc.v` in post-layout simulation and generate .vcd file.
 - Newly generated .vcd file and `aes.spef` is fed directly into the PrimeTime PX power analysis step.

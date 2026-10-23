@@ -1,5 +1,5 @@
 setDesignMode -process 65
-set topverilogfile /data/student/project/AES_Composite_enc.v
+set topverilogfile /data/student/project/aes_12_comp_masoleh.dc.v
 set script_root /data/student/project/
 set rpt_dir /data/student/project/reports/
 set mmmcfilename $script_root/mmmc_setup.view

@@ -2,7 +2,7 @@
  ##                 Synopsys DC Compile 
  #############################################################
 	
-	set top_module AES_Composite_enc
+	set top_module aes_12_comp_masoleh
 	set clk_name   CLK
 	set tech_lib   uk65lscllmvbbr_108c125_wc
 
